@@ -31,18 +31,20 @@
           <a class="brand" href="#">Qpom</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "クーポンを管理", "/path1"  %></li>
-              <li><%= link_to "クーポンを発行", "/path2"  %></li>
-              <li><%= link_to "店舗情報編集", "/path3"  %></li>
-              <li><%= link_to "マイ店ユーザー管理", "/path3"  %></li>
+              <li><%= link_to "クーポンを管理", "/top"  %></li>
+              <li><%= link_to "クーポンを発行", "/top"  %></li>
+              <li><%= link_to "店舗情報編集", "/top"  %></li>
+              <li><%= link_to "マイ店ユーザー管理", "/top"  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-    <footer>
-      <p>&copy; Company 2012</p>
-    </footer>
+    <!--各ビューを読み込み-->
+    <%= yield %>
+<!--     <footer> -->
+<!--       <p>&copy; Company 2012</p> -->
+<!--     </footer> -->
     </div> <!-- /container -->
     <!-- Javascripts
     ================================================== -->
