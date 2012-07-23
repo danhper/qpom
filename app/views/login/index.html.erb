@@ -2,6 +2,15 @@
 <body>
 <div align="center">
 <h1>QPOM店舗登録画面</h1><br/>
+<% form_for @login do |f| %>
+	<%= f.label :username, 'Username: ' %>:
+	<%= f.text_field :username %><br />
+
+	<%= f.label :password, 'Password: ' %>:
+	<%= f.text_field :password %><br />
+	<%= f.submit "Login" %>
+<% end %>
+<!--
 <form id="login">
 	<label>アカウント名</label>
 	<input type="text"><br>
@@ -10,6 +19,7 @@
 	<p>パスワードを忘れた方は<a href=#>こちら</a>へ連絡してください</p>
 	<input type="button" title="登録" value="登録"></input>
 </form>
+-->
 </div>
 </body>
 </html>
