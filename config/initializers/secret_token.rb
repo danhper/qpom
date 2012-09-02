@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Qpom::Application.config.secret_token = 'd528a3f16615ccaa346da6a51dcffe3d1553ff78e24a45a2cd6e0bf3af76eaf7817fa144ec1bb5aa89a15e3524ca145604ed6a5fe8c908106c9b9426765ffc59'
+QpomPretest::Application.config.secret_token = '2a2e3d650bb1091c22c0bc6703bacd4ea542de3fcd42c9b005b8e15af3722c9eda99cb6ecec04f61ab859e59cfdb3cc16222c5d77bfeb73c4fe4d33d377a4e52'
