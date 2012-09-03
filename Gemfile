@@ -11,6 +11,10 @@ group :development, :test do
 	gem 'guard-rspec', '0.5.5'
 end
 
+group :development do
+	gem 'annotate', '2.5.0'
+end
+
 group :production do
 end
 
