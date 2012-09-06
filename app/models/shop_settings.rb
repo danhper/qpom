@@ -1,0 +1,4 @@
+class ShopSettings < Settings
+	
+	
+end

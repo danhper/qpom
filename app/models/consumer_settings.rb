@@ -1,0 +1,4 @@
+class ConsumerSettings < Settings
+	
+	
+end

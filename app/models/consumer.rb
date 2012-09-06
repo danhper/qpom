@@ -1,5 +1,3 @@
-class Consumer < User
-	attr_accessible :nickname, :twitter_id, :facebook_id
-	
-	
+class Consumer < ActiveRecord::Base
+  attr_accessible :facebook, :nickname, :twitter
 end
