@@ -1,3 +1,5 @@
 class Category < ActiveRecord::Base
-  attr_accessible :main_category_id, :name
+  attr_accessible :name
+
+  belongs_to :main_category
 end

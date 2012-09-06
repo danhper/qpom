@@ -1,3 +1,6 @@
 class Location < ActiveRecord::Base
-  attr_accessible :address, :prefecture_id, :town_id
+  attr_accessible :address
+
+  belongs_to :prefecture
+  belongs_to :town
 end
