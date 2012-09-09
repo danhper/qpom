@@ -1,4 +1,7 @@
 QpomPretest::Application.routes.draw do
+
+  match '/', to: 'static_pages#home'
+  
   resources :consumers
 
   resources :shops
