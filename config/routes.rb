@@ -1,12 +1,16 @@
 QpomPretest::Application.routes.draw do
 
   match '/', to: 'static_pages#home'
-  
+
   resources :consumers
 
   resources :shops
 
-  resources :coupons
+  resources :coupons do
+    collection do
+      get 'top'
+    end
+  end
 
 
   # The priority is based upon order of creation:

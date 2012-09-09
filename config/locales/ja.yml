@@ -10,6 +10,10 @@ ja:
   user:
     friends: 友達リスト    
   coupon:
+    code: コード
+    name: クーポン名
+    description: 詳細
     coupon: クーポン
     new: 新着クーポン
     recommended: おすすめクーポン
+    create: クーポンを作成する
