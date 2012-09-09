@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'pg', '0.12.2'
+gem 'bcrypt-ruby', '3.0.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -39,6 +40,9 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '1.2.3'
+
+  gem 'compass-rails', '~> 1.0.3'
+  gem 'zurb-foundation', '~> 3.0.9'
 end
 
 gem 'jquery-rails', '2.0.2'

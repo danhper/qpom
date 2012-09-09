@@ -1,0 +1,15 @@
+ja:
+  general:
+    ranking: ランキング
+    favorited: お気に入り
+  shop:
+    shop: お店
+    search: 店を探す
+    my: マイ店一覧
+  user:
+    friends: 友達リスト    
+  coupon:
+    coupon: クーポン
+    new: 新着クーポン
+    recommended: おすすめクーポン
+    
