@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="eight columns">
+		<div class="row">
+			<h5><%= link_to coupon.name, coupon %></h5>
+			<span class="code"><%= coupon.code %></span>
+		</div>
+		<div class="row">
+			<p class="description"><%= coupon.description %></p>
+		</div>
+	</div>
+	<div class="four columns">
+		<div class="row">
+			<%= link_to 'Edit', edit_coupon_path(coupon),
+			class: %w[small button] %>
+		</div>	
+		<div class="row">
+			<%= link_to 'Destroy', coupon, method: :delete, 
+			data: { confirm: 'Are you sure?' }, class: %w[small button] %>
+		</div>
+	</div>
+</div>

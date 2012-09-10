@@ -1,41 +1,4 @@
 <div class="row">
 	<h2>New coupon</h2>
-	<%= form_for @coupon, url: { action: "create" } do |f| %>
-	<div class="row">
-		<div class="two mobile-one columns">
-			<%= f.label :code, t('coupon.code'), class: %w[right inline] %>
-		</div>
-		<div class="ten mobile-three columns">
-			<%= f.text_field :code, class: "four" %>
-		</div>
-	</div>
-	<div class="row">
-		<div class="two mobile-one columns">
-			<%= f.label :name, t('coupon.name'), class: %w[right inline] %>
-		</div>
-		<div class="ten mobile-three columns">
-			<%= f.text_field :name, class: "four" %>
-		</div>
-	</div>
-	<div class="row">
-		<div class="two mobile-one columns">
-			<%= f.label :description, t('coupon.description'), class: %w[right inline] %>
-		</div>
-		<div class="ten mobile-three columns">
-			<%= f.text_area :description, class: "eight" %>
-		</div>
-	</div>
-	<div class="row">
-		<div class="two columns centered">
-			<div class="row">
-				<div class="three columns">
-					<%= link_to 'Back', coupons_path, class: %w[button medium] %>
-				</div>
-				<div class="three columns">
-					<%= f.submit t('coupon.create'), class: %w[button mediumm] %>
-				</div>
-			</div>
-		</div>
-	</div> 
-	<% end %>
+	<%= render partial: 'form', locals: { submit_text: "coupon.create"} %>
 </div> 

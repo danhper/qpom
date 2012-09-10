@@ -1,17 +1,38 @@
-<%= form_for(@coupon) do |f| %>
-  <% if @coupon.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@coupon.errors.count, "error") %> prohibited this coupon from being saved:</h2>
-
-      <ul>
-      <% @coupon.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @coupon, url: { action: "create" } do |f| %>
+  <div class="row">
+    <div class="two mobile-one columns">
+      <%= f.label :code, t('coupon.code'), class: %w[right inline] %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+    <div class="ten mobile-three columns">
+      <%= f.text_field :code, class: "four" %>
+    </div>
   </div>
+  <div class="row">
+    <div class="two mobile-one columns">
+      <%= f.label :name, t('coupon.name'), class: %w[right inline] %>
+    </div>
+    <div class="ten mobile-three columns">
+      <%= f.text_field :name, class: "four" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="two mobile-one columns">
+      <%= f.label :description, t('coupon.description'), class: %w[right inline] %>
+    </div>
+    <div class="ten mobile-three columns">
+      <%= f.text_area :description, class: "eight" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="two columns centered">
+      <div class="row">
+        <div class="six columns">
+          <%= link_to t("general.back"), coupons_path, class: %w[button medium] %>
+        </div>
+        <div class="six columns">
+          <%= f.submit t(submit_text), class: %w[button medium] %>
+        </div>
+      </div>
+    </div>
+  </div> 
 <% end %>

@@ -1,6 +1,8 @@
-<h1>Editing coupon</h1>
+<div class="row">
+	<h2>Edit coupon</h2>
+	<%= render partial: 'form', locals: { submit_text: "coupon.edit"} %>
+</div> 
 
-<%= render 'form' %>
 
 <%= link_to 'Show', @coupon %> |
 <%= link_to 'Back', coupons_path %>

@@ -3,6 +3,7 @@ ja:
     home: ホーム
     ranking: ランキング
     favorite: お気に入り
+    back: 戻る
   shop:
     shop: お店
     search: 店を探す
@@ -17,3 +18,4 @@ ja:
     new: 新着クーポン
     recommended: おすすめクーポン
     create: クーポンを作成する
+    edit: クーポンを編集する
