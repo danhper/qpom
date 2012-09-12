@@ -1,6 +1,6 @@
 QpomPretest::Application.routes.draw do
 
-  match '/', to: 'static_pages#home'
+  root :to => 'static_pages#home'
 
   resources :consumers
 
@@ -9,6 +9,7 @@ QpomPretest::Application.routes.draw do
   resources :coupons do
     collection do
       get 'top'
+      get 'show_new'
     end
   end
 

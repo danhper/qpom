@@ -19,3 +19,7 @@ ja:
     recommended: おすすめクーポン
     create: クーポンを作成する
     edit: クーポンを編集する
+  buttons:
+    create: 作成
+    edit: 編集
+    delete: 削除

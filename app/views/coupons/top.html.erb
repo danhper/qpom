@@ -1,12 +1,20 @@
-<div class="row">
+<div class="six columns">
 	<div class="row">
-		<div class="four columns centered">
+		<div class="seven columns centered">
 			<h2 class="centered"><%= t 'coupon.new' %></h2>
+			<div class="row">
+				<%= render @new_coupons %>				
+			</div>
 		</div>
 	</div>
-	<div>
-		<div class="five columns centered">
+</div>
+<div class="six columns">
+	<div class="row">
+		<div class="nine columns centered">	
 			<h2><%= t 'coupon.recommended' %></h2>
+			<div class="row">
+				<%= render @recommended_coupons %>				
+			</div>
 		</div>
 	</div>
 </div>

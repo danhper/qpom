@@ -82,5 +82,19 @@ class CouponsController < ApplicationController
   end
 
   def top
+    @new_coupons = Coupon.all
+    @recommended_coupons = Coupon.all
+    respond_to do |format|
+       format.html # top.html.erb
+       format.json { render json: [@new_coupons, @recommended_coupons] }     
+    end
   end
+
+   def show_new
+    @new_coupons = Coupon.all
+    respond_to do |format|
+       format.html # show_new.html.erb
+       format.json { render json: @new_coupons }     
+     end
+   end
 end
