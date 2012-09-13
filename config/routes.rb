@@ -4,7 +4,12 @@ QpomPretest::Application.routes.draw do
 
   resources :consumers
 
-  resources :shops
+  resources :shops do
+    collection do
+      get 'my_shops'
+      get 'search'
+    end
+  end
 
   resources :coupons do
     collection do

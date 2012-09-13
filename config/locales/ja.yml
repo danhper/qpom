@@ -7,6 +7,7 @@ ja:
   shop:
     shop: お店
     search: 店を探す
+    search_text: 店名・地名・QPOMコードなど
     my: マイ店一覧
   user:
     friends: 友達リスト    

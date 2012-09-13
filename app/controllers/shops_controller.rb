@@ -80,4 +80,20 @@ class ShopsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # GET /my_shops
+  def my_shops
+    @shops = Shop.all
+    respond_to do |format|
+      format.html # my_shops.html.erb
+      format.json { render json: @shops }
+    end
+  end
+
+  def search
+    respond_to do |format|
+      format.html # search.html.erb
+      format.json { head :no_content }
+    end
+  end
 end
