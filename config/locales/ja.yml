@@ -21,6 +21,8 @@ ja:
     create: クーポンを作成する
     edit: クーポンを編集する
   buttons:
+    search: 検索
     create: 作成
     edit: 編集
     delete: 削除
+    login: ログイン

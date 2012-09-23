@@ -1,5 +1,17 @@
 <%= form_tag({ controller: "shops", action: "search"},
-		 method: "get") %>
+method: "get") %>
 <%= text_field_tag :q, nil, placeholder: t("shop.search_text"), class: "four" %>
-<%= select(nil, nil, ["東京", "埼玉", "千葉"], {}, class: "four") %>
-<%= select(nil, nil, ["千代田区", "中央区", "杉並区"], {}, class: "four") %>
+<div class="row">
+    <%= select(nil, nil, ["東京", "埼玉", "千葉"], {}, class: "four") %>
+    <%= select(nil, nil, ["千代田区", "中央区", "杉並区"], {}, class: "four") %>
+</div>
+<br>
+<div class="row">
+    <%= select(nil, nil, ["グルメ", "スポーツ", "ビューティー"], {}, class: "three") %>
+    <%= select(nil, nil, ["シーン", "料理種類", "料理"], {}, class: "three") %>
+    <%= select(nil, nil, ["ランチ", "ディナー", "モーニング"], {}, class: "three") %>
+</div>
+<br>
+<div class="row">
+    <%= submit_tag t('buttons.search'), class: %w[button big] %>
+</div>

@@ -1,17 +1,36 @@
 <%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+<div class="actions">
+  <div>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
   </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div> 
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div>
+    <%= link_to t("general.back"), coupons_path, class: %w[button medium] %>
+    <%= f.submit t('buttons.create'), :class => %w[button medium] %>
+  </div>
+</div>
 <% end %>
