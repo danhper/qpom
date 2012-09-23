@@ -19,5 +19,4 @@ class SessionsController < ApplicationController
         logout
         redirect_to root_url, :notice => "Looged out"
     end
-    
 end

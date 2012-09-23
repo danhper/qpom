@@ -3,7 +3,6 @@ QpomPretest::Application.routes.draw do
   root :to => 'static_pages#home'
 
   resources :users
-  resources :consumers
 
   resources :shops do
     collection do
