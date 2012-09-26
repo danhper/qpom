@@ -12,7 +12,6 @@
 class Station < ActiveRecord::Base
 	attr_accessible :name
 
-    has_many :shop
+    has_many :shops
 	belongs_to :train_line
-
 end

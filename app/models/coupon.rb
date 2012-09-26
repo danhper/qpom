@@ -5,7 +5,6 @@
 #  id                      :integer          not null, primary key
 #  name                    :string(255)
 #  code                    :string(255)
-#  use_times_left          :integer
 #  description             :string(255)
 #  sharable                :boolean
 #  image                   :string(255)

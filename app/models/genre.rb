@@ -10,4 +10,8 @@
 
 class Genre < ActiveRecord::Base
   attr_accessible 
+
+  belongs_to :main_category
+  has_and_belongs_to_many :categories
+  has_and_belongs_to_many :sub_categories
 end

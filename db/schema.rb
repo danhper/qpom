@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20120926111153) do
   end
 
   create_table "shop_settings", :force => true do |t|
+    t.integer  "shop_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
