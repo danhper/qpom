@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120926090607) do
+ActiveRecord::Schema.define(:version => 20120926111153) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -20,10 +20,7 @@ ActiveRecord::Schema.define(:version => 20120926090607) do
     t.datetime "updated_at",       :null => false
   end
 
-  create_table "consumers", :force => true do |t|
-    t.string   "nickname"
-    t.string   "twitter"
-    t.string   "facebook"
+  create_table "coupon_usages", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -31,7 +28,6 @@ ActiveRecord::Schema.define(:version => 20120926090607) do
   create_table "coupons", :force => true do |t|
     t.string   "name"
     t.string   "code"
-    t.integer  "use_times_left"
     t.string   "description"
     t.boolean  "sharable"
     t.string   "image"
@@ -67,22 +63,16 @@ ActiveRecord::Schema.define(:version => 20120926090607) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "shop_settings", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "shops", :force => true do |t|
+    t.string   "name"
     t.string   "name_furigana"
-    t.string   "representative"
     t.string   "phone_number"
-    t.string   "fax"
+    t.string   "representative"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false
@@ -139,6 +129,9 @@ ActiveRecord::Schema.define(:version => 20120926090607) do
   end
 
   create_table "users", :force => true do |t|
+    t.string   "username"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
