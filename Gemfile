@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'pg', '0.12.2'
 gem 'bcrypt-ruby', '3.0.1'
-gem "sorcery", "~> 0.7.13"
 gem "actionmailer", "~> 3.2.8"
+gem 'devise'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
