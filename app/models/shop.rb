@@ -15,4 +15,10 @@ class Shop < ActiveRecord::Base
   has_many :coupons, dependent: :destroy
 
   belongs_to :station
+
+  def station=(_station)
+    @station = _station
+    _station.shop << self
+  end
+
 end

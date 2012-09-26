@@ -3,4 +3,5 @@ class Station < ActiveRecord::Base
 
     has_many :shop
 	belongs_to :train_line
+
 end

@@ -1,4 +1,0 @@
-class ConsumerSettings < Settings
-	
-	
-end
