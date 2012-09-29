@@ -23,10 +23,12 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, :omniauth_providers => [:twitter, :facebook]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  attr_accessible :email, :password, :password_confirmation, :remember_me, 
+                  :username, :provider, :uid
 
   validates_presence_of :username, :on => :create
   validates_uniqueness_of :username
@@ -39,4 +41,6 @@ class User < ActiveRecord::Base
 
   has_many :coupon_usages
   has_many :coupons, :through => :coupon_usages
+
+  has_one :user_settings
 end

@@ -10,4 +10,6 @@
 
 class ShopSettings < ActiveRecord::Base
   # attr_accessible :title, :body
+
+  belongs_to :shop
 end
