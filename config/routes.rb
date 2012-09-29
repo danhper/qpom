@@ -22,6 +22,9 @@ QpomPretest::Application.routes.draw do
     end
   end
 
+  devise_scope :user do
+    get 'signin', :to => 'devise/sessions#new'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
