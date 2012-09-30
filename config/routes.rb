@@ -23,7 +23,8 @@ QpomPretest::Application.routes.draw do
   end
 
   devise_scope :user do
-    get 'signin', :to => 'devise/sessions#new'
+    get 'login', :to => 'devise/sessions#new'
+    get 'logout', :to => 'devise/sessions#destroy'
   end
 
   # The priority is based upon order of creation:
