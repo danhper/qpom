@@ -1,23 +1,21 @@
-<div class="row">
-	<div class="eight columns">
-		<div class="row">
-			<h5><%= link_to coupon.name, coupon %></h5>
-			<span class="code"><%= coupon.code %></span>
-		</div>
-		<div class="row">
-			<p class="description"><%= coupon.description %></p>
-		</div>
+<a href="#">
+	<div class="coupon red">
+		<table border="0">
+			<tr>
+				<td colspan="2" class="title"><%= coupon.name %></td>
+			</tr>
+			<tr>
+				<td rowspan="3" class="picture1">
+					<img src="image/sample.jpg" width="64" height="64">
+				</td>
+				<td class="text"><p><%= coupon.description %></p></td>
+			</tr>
+			<tr>
+				<td class="date"><%= validity_time(coupon) %></td>
+			</tr>
+			<tr>
+				<td class="info"><%= coupon.shop.name %></td>
+			</tr>
+		</table>	
 	</div>
-	<div class="four columns">
-		<div class="row push-bottom">
-			<div class="row">
-				<%= link_to t('buttons.edit'), edit_coupon_path(coupon),
-				class: %w[small button] %>
-			</div>	
-			<div class="row">
-				<%= link_to t('buttons.delete'), coupon, method: :delete, 
-				data: { confirm: 'Are you sure?' }, class: %w[small button] %>
-			</div>
-		</div>
-	</div>
-</div>
+</a>

@@ -1,6 +1,5 @@
-<h1>Listing coupons</h1>
-<div class="row">
-	<%= render @coupons %>
+<div class="ui-bar ui-bar-a"><%= t 'coupon.new' %>
+</div>
+<div data-role="content"> 
+    <%= render @coupons %>
 </div>  
-<br>
-<%= link_to t("coupon.create"), new_coupon_path, class: %w[big button]%>

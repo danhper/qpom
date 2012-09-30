@@ -61,8 +61,6 @@ class User < ActiveRecord::Base
         user.name = infos[:name]
         user.provider = infos[:provider]
         user.uid = infos[:uid]
-      else
-        raise "test"
       end
     end
   end
