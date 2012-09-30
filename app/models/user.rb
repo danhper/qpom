@@ -47,14 +47,16 @@ class User < ActiveRecord::Base
 
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-    get_or_create_user(auth, signed_in_resource, "name")
+    self.get_or_create_user(auth, signed_in_resource, "name")
   end
 
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
-    get_or_create_user(auth, signed_in_resource, "nickname")
+    self.get_or_create_user(auth, signed_in_resource, "nickname")
   end
 
-  def get_or_create_user(auth, signed_in_resource=nil, name_key)
+  private
+
+  def self.get_or_create_user(auth, signed_in_resource=nil, name_key)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
       user = User.create(name: auth.extra.raw_info[name_key],
