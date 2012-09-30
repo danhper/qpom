@@ -1,4 +1,3 @@
-require 'yaml'
 # == Schema Information
 #
 # Table name: users
@@ -48,26 +47,38 @@ class User < ActiveRecord::Base
 
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-    self.get_or_create_user(auth, signed_in_resource, "name")
+    self.get_or_create_user(auth, signed_in_resource, auth.extra.raw_info.name)
   end
 
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
-    self.get_or_create_user(auth, signed_in_resource, "nickname")
+    self.get_or_create_user(auth, signed_in_resource, auth.info.nickname)
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if session.key?(:new_user)
+        infos = session[:new_user]
+        user.name = infos[:name]
+        user.provider = infos[:provider]
+        user.uid = infos[:uid]
+      else
+        raise "test"
+      end
+    end
   end
 
   private
 
-  def self.get_or_create_user(auth, signed_in_resource=nil, name_key)
-    raise YAML::dump(auth)
+  def self.get_or_create_user(auth, signed_in_resource=nil, name)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
-      user = User.create(name: auth.extra.raw_info[name_key],
+      user = User.create(name: name,
                          provider: auth.provider,
                          uid: auth.uid,
                          email: auth.info.email,
                          password: Devise.friendly_token[0, 20]
                         )
-      user.save!
+      user.save! if user.email?
     end
     user
   end
