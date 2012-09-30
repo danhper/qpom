@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20120929055204) do
   end
 
   create_table "genres", :force => true do |t|
+    t.integer  "shop_id"
     t.integer  "main_category_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
@@ -130,7 +131,7 @@ ActiveRecord::Schema.define(:version => 20120929055204) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username"
+    t.string   "name"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false

@@ -28,10 +28,9 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
-                  :username, :provider, :uid
+                  :name, :provider, :uid
 
-  validates_presence_of :username, :on => :create
-  validates_uniqueness_of :username
+  validates_presence_of :name, :on => :create
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates_presence_of :email
@@ -48,7 +47,7 @@ class User < ActiveRecord::Base
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
-      user = User.create(username: auth.extra.raw_info.nickname,
+      user = User.create(name: auth.extra.raw_info.name,
                          provider: auth.provider,
                          uid: auth.uid,
                          email: auth.info.email,
