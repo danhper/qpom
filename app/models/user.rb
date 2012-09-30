@@ -1,3 +1,4 @@
+require 'yaml'
 # == Schema Information
 #
 # Table name: users
@@ -57,6 +58,7 @@ class User < ActiveRecord::Base
   private
 
   def self.get_or_create_user(auth, signed_in_resource=nil, name_key)
+    raise YAML::dump(auth)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
       user = User.create(name: auth.extra.raw_info[name_key],
