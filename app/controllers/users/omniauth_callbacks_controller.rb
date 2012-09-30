@@ -6,7 +6,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         if not @user.persisted?
             @user.save!
         end
+
         flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
-        sign_in_and_redirect @user, :event => :autentication
+        sign_in_and_redirect @user, :event => :authentication
     end
 end
