@@ -3,6 +3,7 @@
 # Table name: genres
 #
 #  id               :integer          not null, primary key
+#  shop_id          :integer
 #  main_category_id :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null

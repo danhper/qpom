@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  username               :string(255)
+#  name                   :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  email                  :string(255)      default(""), not null
@@ -16,6 +16,8 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  provider               :string(255)
+#  uid                    :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -23,12 +25,12 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:twitter, :facebook]
+    :recoverable, :rememberable, :trackable, :validatable,
+    :omniauthable, :omniauth_providers => [:twitter, :facebook]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, 
-                  :name, :provider, :uid
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
+    :name, :provider, :uid
 
   validates_presence_of :name, :on => :create
   validates_confirmation_of :password
@@ -45,15 +47,22 @@ class User < ActiveRecord::Base
 
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+    get_or_create_user(auth, signed_in_resource, "name")
+  end
+
+  def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
+    get_or_create_user(auth, signed_in_resource, "nickname")
+  end
+
+  def get_or_create_user(auth, signed_in_resource=nil, name_key)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
-      user = User.create(name: auth.extra.raw_info.name,
+      user = User.create(name: auth.extra.raw_info[name_key],
                          provider: auth.provider,
                          uid: auth.uid,
                          email: auth.info.email,
                          password: Devise.friendly_token[0, 20]
-                         )      
-
+                        )
       user.save!
     end
     user
