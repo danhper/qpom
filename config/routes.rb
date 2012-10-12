@@ -2,7 +2,7 @@ QpomPretest::Application.routes.draw do
 
   devise_for :shops
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :skip => [:sessions], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root :to => 'coupons#index'
 
@@ -24,8 +24,9 @@ QpomPretest::Application.routes.draw do
   end
 
   devise_scope :user do
-    get 'login', :to => 'devise/sessions#new'
-    get 'logout', :to => 'devise/sessions#destroy'
+    get 'login', :to => 'devise/sessions#new', :as => :new_user_session
+    post 'login', :to => 'devise/sessions#create', :as => :user_session
+    get 'logout', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 
   # The priority is based upon order of creation:

@@ -1,4 +1,6 @@
 class CouponsController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /coupons
   # GET /coupons.json
   def index

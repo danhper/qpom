@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Qpom</title>
+    </head>
+    <body>
+        <div data-role="page" id="index" data-theme="e">
+            <div data-role="header" data-theme="c">
+                <h1>
+                    クーポンアプリ
+                </h1>
+            </div>
+            <div data-role="content" class="centering">
+                <div class="index">
+                    <div class="index_logo">
+                        <img src="/assets/logo.png" alt="main logo" width="90%">
+                    </div>
+                    <div class="description">
+                        <p>
+                            なんか説明文てきな
+                        </p>
+                    </div>
+                    <div class="social_buttons centering" style="max-width:648px;">
+                        <div class="social_button">
+                            <%= link_to user_omniauth_authorize_path(:facebook), "data-ajax" => false do %>
+                              <img src="/assets/sign_in_with_facebook.png" alt="sign_in_with_facebook" width="80%">
+                            <% end %>
+                        </div>
+                        <div class="social_button">
+                          <%= link_to user_omniauth_authorize_path(:twitter), "data-ajax" => false do %>
+                            <img src="/assets/sign_in_with_twitter.png" alt="sign_in_with_twitter" width="80%">
+                          <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
