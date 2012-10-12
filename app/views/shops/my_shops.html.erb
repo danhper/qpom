@@ -1,1 +1,50 @@
-<%= render @shops %>
+<div data-role="page" id="myshop" data-theme="e">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="c"> 
+		<a href="main.html" data-icon="home" data-transition="slide" data-direction="reverse">ホーム</a>
+    <div id="header_logo"> <img src="/assets/logo.png" alt="main logo" width="70" height="28"></div>
+    <a href="#" data-icon="check">メニュー</a> </div>
+  <div data-role="content"> <a href="#">
+    <div class="shop">
+      <table border="0">
+        <tr>
+          <td colspan="2" class="title">トラノコ歌舞伎町店</td>
+        </tr>
+        <tr>
+          <td class="picture"><img src="/assets/sample.jpg" width="64" height="64"></td>
+          <td class="coupons"><div class="coupon red">
+              <table border="0">
+                <tr>
+                  <td class="title">飲み放題1000円引き！</td>
+                </tr>
+                <tr>
+                  <td class="date">2012年9月26日まで有効</td>
+                </tr>
+
+              </table>
+            </div>
+            <div class="coupon orange">
+              <table border="0">
+                <tr>
+                  <td class="title">飲み放題1000円引き！</td>
+                </tr>
+                <tr>
+                  <td class="date">2012年9月26日まで有効</td>
+                </tr>
+
+              </table>
+            </div>
+            </td>
+        </tr>
+      </table>
+    </div>
+    </a> </div>
+  <div data-role="footer" data-id="main_buttons" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar">
+      <ul>
+        <li> <a href="myshop.html" data-icon="delete" class="ui-btn-active ui-state-persist">マイ店一覧</a> </li>
+        <li> <a href="search.html" data-icon="delete">お店を探す</a> </li>
+        <li> <a href="ranking.html" data-icon="delete">ランキング</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>

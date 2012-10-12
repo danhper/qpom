@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+.button {
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	display:inline-block;
+}
+.button.red {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100) );
+	background:-moz-linear-gradient( center top, #fe1a00 5%, #ce0100 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100');
+	background-color:#fe1a00;
+	border:1px solid #d83526;
+	color:#ffffff;
+}.button.red:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ce0100), color-stop(1, #fe1a00) );
+	background:-moz-linear-gradient( center top, #ce0100 5%, #fe1a00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce0100', endColorstr='#fe1a00');
+	background-color:#ce0100;
+}.button:active {
+	position:relative;
+	top:1px;
+}
+
+
+#header_logo {
+	text-align:center;
+}
+#header_logo * {
+	margin:5px auto 0;
+}
+.centering {
+	margin:0 auto;
+	text-align:center;
+}
+.coupon {
+	font-weight:bold;
+}
+.coupon .text {
+	padding:0 10px;
+}
+.coupon.big {
+	padding:10px;
+}
+.coupon.big .title, .coupon.big .text {
+	margin:5px ;
+}
+.coupon.orange {
+	background:#FF9900;
+	color:#fff;
+}
+.coupon.red {
+	background:#F00;
+	color:#fff;
+}
+.coupon.yellow {
+	background:#FF0;
+	color:#000;
+}
+.coupon table {
+	width:95%;
+	margin:10px auto 10px;
+}
+.coupon .title {
+	font-size:20px;
+	white-space:nowrap;
+}
+.coupon .text p {
+	margin:0;
+	line-height:1em;
+	height:2em;
+	overflow:hidden;
+}
+.coupon .date, .coupon .info {
+	text-align:right;
+}
+.coupon .date {
+	font-size:12px;
+}
+
+
+.share .description p {
+	margin-top:0;
+	padding-top:0;
+}
+.share .social_button {
+	margin-top:5px;
+}
+.share .coupon {
+	margin-top:10px;
+}
+.shop, .coupon {
+	text-shadow:none;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding:1px 0;
+	-webkit-box-shadow:  1px 1px 3px 1px rgba(0, 0, 0, 0.5);
+	box-shadow:  1px 1px 3px 1px rgba(0, 0, 0, 0.5);
+	overflow:hidden;
+	margin:0 0 10px 0;
+}
+.shop {
+	background:#fff;
+	color:#000;
+}
+.shop .title {
+	font-weight:bold;
+	padding:3px 5px;
+}
+.shop .description, .shop .information {
+	width:50%;
+	vertical-align:top;
+	padding:10px 5px;
+	font-size:12px;
+}
+.shop .information .button {
+	margin-left:10px;
+}
+.shop + .button_wrapper {
+	margin:20px 0;
+}
+.shop .coupons {
+	margin:20px;
+}
+.shop .picture {
+	vertical-align:top;
+	padding:3px;
+}
+.shop .coupons {
+	width:100%;
+	padding:3px;
+	
+}
+.shop .title {
+	font-size:18px;
+	width:100%;
+}
+
+
+.friend_list.buttons {
+	margin:0 0 30px 0;
+}
+

@@ -1,21 +1,39 @@
-<h1>Listing shops</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @shops.each do |shop| %>
-  <tr>
-    <td><%= link_to 'Show', shop %></td>
-    <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
-    <td><%= link_to 'Destroy', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Shop', new_shop_path %>
+<div data-role="page" id="myshop" data-theme="e">
+  <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="c"> <a href="main.html" data-icon="home" data-transition="slide" data-direction="reverse">ホーム</a>
+    <div id="header_logo"> <img src="/assets/logo.png" alt="main logo" width="70" height="28"></div>
+    <a href="#" data-icon="check">メニュー</a> </div>
+  <div data-role="content">
+    <div class="shop">
+      <table border="0">
+        <tr>
+          <td colspan="2" class="title">トラノコ歌舞伎町店</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="picture centering"><img src="/assets/sample_shop.jpg" width="90%"></td>
+        </tr>
+        <tr>
+          <td class="description">飲み放題が1385円という奇跡のお店<br>
+          料理もやたら安くて意外と美味しいイケてるお店</td>
+          <td class="information">電話：03-666-666<br>
+          住所：東京都新宿区歌舞伎町6-6-6<br>
+          地図：<span class="button red">開く</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="button_wrapper centering">
+      <div class="button red">マイ店登録を行う</div>
+    </div>
+    <div class="coupons">
+		<%= render 'shared/coupon.html.erb' %>
+    </div>
+  </div>
+  <div data-role="footer" data-id="main_buttons" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar">
+      <ul>
+        <li> <a href="myshop.html" data-icon="delete">マイ店一覧</a> </li>
+        <li> <a href="search.html" data-icon="delete">お店を探す</a> </li>
+        <li> <a href="ranking.html" data-icon="delete">ランキング</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>

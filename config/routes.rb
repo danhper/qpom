@@ -19,6 +19,7 @@ QpomPretest::Application.routes.draw do
     collection do
       get 'top'
       get 'show_new'
+      get 'share'
     end
   end
 

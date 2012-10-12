@@ -1,0 +1,63 @@
+<div data-role="page" id="search" data-theme="e">
+  <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="c"> <a href="main.html" data-icon="home" data-transition="slide" data-direction="reverse">ホーム</a>
+    <div id="header_logo"> <img src="image/logo.png" alt="main logo" width="70" height="28"></div>
+    <a href="#" data-icon="check">メニュー</a> </div>
+  <div data-role="content">
+    <input type="search" name="search" id="search-basic" value="" />
+    <div data-role="fieldcontain" class="place_selector">
+      <fieldset data-role="controlgroup">
+        <legend>場所を絞る</legend>
+        <label for="select-choice-region">地方</label>
+        <select name="select-choice-region" id="select-choice-region">
+          <option>地方</option>
+          <option value="1">関東地方</option>
+          <!-- Add some more -->
+        </select>
+        <label for="select-choice-prefecture">都道府県</label>
+        <select name="select-choice-prefecture" id="select-choice-prefecture">
+          <option>都道府県</option>
+          <option value="1">北海道</option>
+          <!-- 追加しよう -->
+        </select>
+        <label for="select-choice-ward">市区町村</label>
+        <select name="select-choice-ward" id="select-choice-ward">
+          <option>市区町村</option>
+          <option value="1">千代田区</option>
+          <!-- etc. -->
+        </select>
+      </fieldset>
+    </div>
+    <div data-role="fieldcontain" class="genre_selector">
+      <fieldset data-role="controlgroup">
+        <legend>ジャンルで絞る</legend>
+        <label for="select-choice-region">ジャンル</label>
+        <select name="select-choice-region" id="select-choice-region">
+          <option>ジャンル</option>
+          <option value="1">グルメ</option>
+          <!-- Add some more -->
+        </select>
+        <label for="select-choice-prefecture">グルメ</label>
+        <select name="select-choice-prefecture" id="select-choice-prefecture">
+          <option>グルメ</option>
+          <option value="1">シーン</option>
+          <!-- 追加しよう -->
+        </select>
+        <label for="select-choice-ward">シーン</label>
+        <select name="select-choice-ward" id="select-choice-ward">
+          <option>シーン</option>
+          <option value="1">ランチ</option>
+          <!-- etc. -->
+        </select>
+      </fieldset>
+    </div>
+  </div>
+  <div data-role="footer" data-id="main_buttons" data-position="fixed" data-tap-toggle="false">
+    <div data-role="navbar">
+      <ul>
+        <li> <a href="myshop.html" data-icon="delete">マイ店一覧</a> </li>
+        <li> <a href="search.html" data-icon="delete" class="ui-btn-active ui-state-persist">お店を探す</a> </li>
+        <li> <a href="ranking.html" data-icon="delete">ランキング</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>

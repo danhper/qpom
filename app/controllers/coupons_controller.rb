@@ -97,4 +97,11 @@ class CouponsController < ApplicationController
        format.json { render json: @new_coupons }     
      end
    end
+
+   def share
+	   respond_to do |format|
+		   format.html # share.html.erb
+	   end
+   end
+
 end
