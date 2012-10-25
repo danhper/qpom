@@ -7,7 +7,7 @@
     <div data-role="content" class="centering">
         <div class="index">
             <div class="index_logo">
-                <%= image_tag "logo.png", alt: "main logo", width: "90%" %>
+                <%= image_tag "logo.png", alt: "main logo", width: "140px" %>
             </div>
             <div class="description">
                 <p>
@@ -17,12 +17,12 @@
             <div class="social_buttons centering" style="max-width:648px;">
                 <div class="social_button">
                     <%= link_to user_omniauth_authorize_path(:facebook), "data-ajax" => false do %>
-                    <%= image_tag "sign_in_with_facebook.png", alt: "sign_in_with_facebook", width: "80%" %>
+                    <%= image_tag "sign_in_with_facebook.png", alt: "sign_in_with_facebook", width: "162px" %>
                     <% end %>
                 </div>
                 <div class="social_button">
                     <%= link_to user_omniauth_authorize_path(:twitter), "data-ajax" => false do %>
-                    <%= image_tag "sign_in_with_twitter.png", alt: "sign_in_with_twitter", width: "80%" %>
+                    <%= image_tag "sign_in_with_twitter.png", alt: "sign_in_with_twitter", width: "162px" %>
                     <% end %>
                 </div>
             </div>
