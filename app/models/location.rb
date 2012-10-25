@@ -13,6 +13,9 @@
 class Location < ActiveRecord::Base
   attr_accessible :address
 
+  has_many :shops
+
   belongs_to :prefecture
   belongs_to :town
+  belongs_to :area
 end

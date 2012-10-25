@@ -11,5 +11,5 @@
 class TrainCompany < ActiveRecord::Base
 	attr_accessible :name
 
-	has_many :train_line
+	has_many :train_lines
 end

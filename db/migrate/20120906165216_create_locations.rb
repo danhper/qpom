@@ -4,6 +4,7 @@ class CreateLocations < ActiveRecord::Migration
       t.string :address
       t.integer :prefecture_id
       t.integer :town_id
+      t.integer :area_id
 
       t.timestamps
     end

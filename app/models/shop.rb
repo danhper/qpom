@@ -30,19 +30,20 @@ class Shop < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :name, :name_furigana, :phone_number, :representative,
-                  :free_word
+                  :name, :name_furigana, :phone_number, :representative
 
   has_one :shop_settings, dependent: :destroy 
-  has_one :genre, dependent: :destroy
+  has_one :genre
 
   has_many :coupons, dependent: :destroy
 
   belongs_to :station
 
+  belongs_to :location
+
   def station=(_station)
     @station = _station
-    _station.shop << self
+    _station.shops << self
   end
 
 end

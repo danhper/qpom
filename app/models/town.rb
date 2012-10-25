@@ -10,4 +10,6 @@
 
 class Town < ActiveRecord::Base
   attr_accessible :name
+
+  belongs_to :prefecture
 end

@@ -2,17 +2,18 @@
   <%= render 'layouts/header' %>
 
   <div data-role="content">
-    <%= form_for(@shop, url: find_shops_path,  method: :get)  do |f| %>
-        <%= f.text_field :free_word, type: "search", name: "search", id: "search-basic", value: "" %>
+    <%= form_tag(controller: 'shops', action: 'find', method: :get)  do %>
+
+        <%= text_field_tag :free_word, params[:free_word], type: "search", name: "search", id: "search-basic", value: "" %>
     <div data-role="fieldcontain" class="place_selector">
       <fieldset data-role="controlgroup">
         <legend><%= t 'search.place_long' %></legend>
         <label for="select-choice-region"><%= t 'search.region' %></label>
-        <select name="select-choice-region" id="select-choice-region">
+ <!--        <select name="select-choice-region" id="select-choice-region">
           <option><%= t 'search.place_long' %></option>
           <option value="1">関東地方</option>
-          <!-- Add some more -->
-        </select>
+        </select> -->
+        <%= select_tag :area_id, options_for_select(Area.all.collect { |a| [a.name, a.id]}) %>
         <label for="select-choice-prefecture">都道府県</label>
         <select name="select-choice-prefecture" id="select-choice-prefecture">
           <option>都道府県</option>

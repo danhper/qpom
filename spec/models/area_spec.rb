@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: prefectures
+# Table name: areas
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -8,10 +8,8 @@
 #  updated_at :datetime         not null
 #
 
-class Prefecture < ActiveRecord::Base
-  attr_accessible :name
+require 'spec_helper'
 
-  belongs_to :area
-  
-  has_many :towns
+describe Area do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

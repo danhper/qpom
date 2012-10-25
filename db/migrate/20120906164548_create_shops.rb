@@ -5,6 +5,7 @@ class CreateShops < ActiveRecord::Migration
       t.string :name_furigana
       t.string :phone_number
       t.string :representative
+      t.integer :shop_id
 
       t.timestamps
     end
