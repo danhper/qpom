@@ -81,7 +81,7 @@ class ShopsController < ApplicationController
     end
   end
 
-  # GET /my_shops
+  # GET shops/my_shops
   def my_shops
     @shops = Shop.all
     respond_to do |format|
@@ -90,10 +90,20 @@ class ShopsController < ApplicationController
     end
   end
 
+  # GET /shops/search
   def search
+    @shop = Shop.new
     respond_to do |format|
       format.html # search.html.erb
       format.json { head :no_content }
     end
   end
+
+  def find
+    respond_to do |format|
+      format.html
+      format.json { head :no_content }
+    end
+  end
+
 end

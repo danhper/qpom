@@ -1,38 +1,15 @@
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <div data-role="page" id="index" data-theme="e">
-            <div data-role="header" data-theme="c">
-                <h1>
-                    クーポンアプリ
-                </h1>
-            </div>
-            <div data-role="content" class="centering">
-                <div class="index">
-                    <div class="index_logo">
-                        <img src="/assets/logo.png" alt="main logo" width="90%">
-                    </div>
-                    <div class="description">
-                        <p>
-                            なんか説明文てきな
-                        </p>
-                    </div>
-                    <div class="social_buttons centering" style="max-width:648px;">
-                        <div class="social_button">
-                            <%= link_to user_omniauth_authorize_path(:facebook), "data-ajax" => false do %>
-                              <img src="/assets/sign_in_with_facebook.png" alt="sign_in_with_facebook" width="80%">
-                            <% end %>
-                        </div>
-                        <div class="social_button">
-                          <%= link_to user_omniauth_authorize_path(:twitter), "data-ajax" => false do %>
-                            <img src="/assets/sign_in_with_twitter.png" alt="sign_in_with_twitter" width="80%">
-                          <% end %>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+<div data-role="page" id="main" data-add-back-btn="false" data-theme="e">
+    <%= render 'layouts/header' %>
+
+    <div class="ui-bar ui-bar-a">
+        <%= t 'coupon.new' %>
+    </div>
+
+    <div data-role="content">
+        <% @coupons.take(3).each do |coupon| %>
+            <%= render partial: "coupons/coupon", object: coupon %>
+        <% end %>
+    </div>
+    
+    <%= render 'layouts/footer' %>
+</div>

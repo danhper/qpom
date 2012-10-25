@@ -2,16 +2,17 @@ QpomPretest::Application.routes.draw do
 
   devise_for :shops
 
-  devise_for :users, :skip => [:sessions], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, skip: [:sessions], controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
-  root :to => 'coupons#index'
+  root to: 'coupons#index'
 
   resources :users
 
   resources :shops do
     collection do
-      get 'my_shops'
+      get 'my'
       get 'search'
+      get 'find'
     end
   end
 
@@ -24,9 +25,9 @@ QpomPretest::Application.routes.draw do
   end
 
   devise_scope :user do
-    get 'login', :to => 'devise/sessions#new', :as => :new_user_session
-    post 'login', :to => 'devise/sessions#create', :as => :user_session
-    get 'logout', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+    get 'login', to: 'devise/sessions#new', as: :new_user_session
+    post 'login', to: 'devise/sessions#create', as: :user_session
+    get 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
   # The priority is based upon order of creation:
@@ -37,8 +38,8 @@ QpomPretest::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
+  #   match 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  # This route can be invoked with purchase_url(id: product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -65,7 +66,7 @@ QpomPretest::Application.routes.draw do
   #   resources :products do
   #     resources :comments
   #     resources :sales do
-  #       get 'recent', :on => :collection
+  #       get 'recent', on: :collection
   #     end
   #   end
 
@@ -78,7 +79,7 @@ QpomPretest::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  # root to: 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

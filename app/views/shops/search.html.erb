@@ -1,15 +1,15 @@
 <div data-role="page" id="search" data-theme="e">
-  <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="c"> <a href="main.html" data-icon="home" data-transition="slide" data-direction="reverse">ホーム</a>
-    <div id="header_logo"> <img src="image/logo.png" alt="main logo" width="70" height="28"></div>
-    <a href="#" data-icon="check">メニュー</a> </div>
+  <%= render 'layouts/header' %>
+
   <div data-role="content">
-    <input type="search" name="search" id="search-basic" value="" />
+    <%= form_for(@shop, url: find_shops_path,  method: :get)  do |f| %>
+        <%= f.text_field :free_word, type: "search", name: "search", id: "search-basic", value: "" %>
     <div data-role="fieldcontain" class="place_selector">
       <fieldset data-role="controlgroup">
-        <legend>場所を絞る</legend>
-        <label for="select-choice-region">地方</label>
+        <legend><%= t 'search.place_long' %></legend>
+        <label for="select-choice-region"><%= t 'search.region' %></label>
         <select name="select-choice-region" id="select-choice-region">
-          <option>地方</option>
+          <option><%= t 'search.place_long' %></option>
           <option value="1">関東地方</option>
           <!-- Add some more -->
         </select>
@@ -51,13 +51,6 @@
       </fieldset>
     </div>
   </div>
-  <div data-role="footer" data-id="main_buttons" data-position="fixed" data-tap-toggle="false">
-    <div data-role="navbar">
-      <ul>
-        <li> <a href="myshop.html" data-icon="delete">マイ店一覧</a> </li>
-        <li> <a href="search.html" data-icon="delete" class="ui-btn-active ui-state-persist">お店を探す</a> </li>
-        <li> <a href="ranking.html" data-icon="delete">ランキング</a> </li>
-      </ul>
-    </div>
-  </div>
+  <% end %>
+  <%= render 'layouts/footer' %>
 </div>

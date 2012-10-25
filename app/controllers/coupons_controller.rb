@@ -101,9 +101,9 @@ class CouponsController < ApplicationController
    end
 
    def share
-	   respond_to do |format|
-		   format.html # share.html.erb
-	   end
+     respond_to do |format|
+       format.html # share.html.erb
+     end
    end
 
 end

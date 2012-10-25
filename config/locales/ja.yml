@@ -30,6 +30,10 @@ ja:
     edit: 編集
     delete: 削除
     login: ログイン
+  search:
+    place: 場所
+    place_long: 場所を絞る
+    region: 地方
   date:
     formats:
       ymd: ! 'Y年m月d日'
