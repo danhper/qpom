@@ -6,17 +6,24 @@ class Qpom.Views.SearchView extends Backbone.View
 
     loadSubList: (e) ->
         option = $(e.target)
-        select = option.parent('select')
-        selectList = select.parents('fieldset').find('select')
+        selectTag = option.parent('select')
+        selectList = selectTag.parents('fieldset').find('select')
         searchId = parseInt(option.val())
 
         for i in [0..selectList.size()]
-            if select.attr('id') == selectList.eq(i).attr('id')
+            if selectTag.attr('id') == selectList.eq(i).attr('id')
                 index = i + 1
                 nextSelect = selectList.eq(index)
 
         if searchId == 0 or typeof nextSelect == 'undefined'
             return
+
+        selectList.slice(index).each (index, select) ->
+            $select = $(select)
+            defaultOption = $select.children('option').first()
+            $select.empty()
+            $select.append defaultOption
+            $select.selectmenu('refresh')
 
         switch index
             when 1 then collection = new Qpom.Collections.PrefecturesCollection
@@ -24,9 +31,6 @@ class Qpom.Views.SearchView extends Backbone.View
             else return
 
         collection.fetchWithId searchId, success: ->
-            defaultOption = nextSelect.children('option').first()
-            nextSelect.empty()
-            nextSelect.append defaultOption
             collection.forEach (item) ->
                 option = $('<option />').attr 'value', item.get 'id' 
                 option.text item.get('name')
