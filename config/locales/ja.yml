@@ -36,6 +36,7 @@ ja:
   search:
     place: 場所
     place_long: 場所を絞る
+    genre_long: ジャンルで絞る
     region: 地方
     prefecture: 都道府県
     town: 市区町村

@@ -49,6 +49,8 @@ group :assets do
 
   gem 'compass-rails', '~> 1.0.3'
   gem 'zurb-foundation', '~> 3.0.9'
+  gem 'rails-backbone'
+  gem 'underscore-rails'
 end
 
 gem 'jquery-rails', '2.0.2'
