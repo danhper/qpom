@@ -30,6 +30,9 @@ QpomPretest::Application.routes.draw do
     get 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
+  match 'prefectures/:id' => 'location#prefectures'
+  match 'towns/:id' => 'location#towns'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

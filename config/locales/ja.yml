@@ -9,6 +9,9 @@ ja:
     search: お店を探す
     search_text: 店名・地名・QPOMコードなど
     my: マイ店一覧
+    genre: ジャンル
+    subgenre: サブジャンル
+    subsubgenre: サブサブジャンル
   user:
     friends: 友達リスト    
   coupon:
@@ -34,6 +37,8 @@ ja:
     place: 場所
     place_long: 場所を絞る
     region: 地方
+    prefecture: 都道府県
+    town: 市区町村
   date:
     formats:
       ymd: ! 'Y年m月d日'

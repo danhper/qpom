@@ -1,57 +1,38 @@
 <div data-role="page" id="search" data-theme="e">
+
   <%= render 'layouts/header' %>
 
   <div data-role="content">
     <%= form_tag(controller: 'shops', action: 'find', method: :get)  do %>
 
         <%= text_field_tag :free_word, params[:free_word], type: "search", name: "search", id: "search-basic", value: "" %>
-    <div data-role="fieldcontain" class="place_selector">
-      <fieldset data-role="controlgroup">
-        <legend><%= t 'search.place_long' %></legend>
-        <label for="select-choice-region"><%= t 'search.region' %></label>
- <!--        <select name="select-choice-region" id="select-choice-region">
-          <option><%= t 'search.place_long' %></option>
-          <option value="1">関東地方</option>
-        </select> -->
-        <%= select_tag :area_id, options_for_select(Area.all.collect { |a| [a.name, a.id]}) %>
-        <label for="select-choice-prefecture">都道府県</label>
-        <select name="select-choice-prefecture" id="select-choice-prefecture">
-          <option>都道府県</option>
-          <option value="1">北海道</option>
-          <!-- 追加しよう -->
-        </select>
-        <label for="select-choice-ward">市区町村</label>
-        <select name="select-choice-ward" id="select-choice-ward">
-          <option>市区町村</option>
-          <option value="1">千代田区</option>
-          <!-- etc. -->
-        </select>
-      </fieldset>
-    </div>
-    <div data-role="fieldcontain" class="genre_selector">
-      <fieldset data-role="controlgroup">
-        <legend>ジャンルで絞る</legend>
-        <label for="select-choice-region">ジャンル</label>
-        <select name="select-choice-region" id="select-choice-region">
-          <option>ジャンル</option>
-          <option value="1">グルメ</option>
-          <!-- Add some more -->
-        </select>
-        <label for="select-choice-prefecture">グルメ</label>
-        <select name="select-choice-prefecture" id="select-choice-prefecture">
-          <option>グルメ</option>
-          <option value="1">シーン</option>
-          <!-- 追加しよう -->
-        </select>
-        <label for="select-choice-ward">シーン</label>
-        <select name="select-choice-ward" id="select-choice-ward">
-          <option>シーン</option>
-          <option value="1">ランチ</option>
-          <!-- etc. -->
-        </select>
-      </fieldset>
-    </div>
+
+        <div data-role="fieldcontain" class="place_selector">
+          <fieldset data-role="controlgroup">
+            <legend><%= t 'search.place_long' %></legend>
+
+            <%= select_tag :area_id, options_for_select([[t('search.region'), 0]] + Area.all.collect { |a| [a.name, a.id]}) %>
+
+            <%= select_tag :prefecture_id, options_for_select([[t('search.prefecture'), 0]]), name: "select-choice-prefecture", id: "select-choice-prefecture" %>
+
+            <%= select_tag :town_id, options_for_select([[t('search.town'), 0]]), name: "select-choice-ward", id: "select-choice-ward" %>
+          </fieldset>
+        </div>
+
+        <div data-role="fieldcontain" class="genre_selector">
+          <fieldset data-role="controlgroup">
+            <legend>ジャンルで絞る</legend>
+            <%= select_tag :genre_id, options_for_select([[t('shop.genre'), 0]]) %>
+
+            <%= select_tag :subgenre_id, options_for_select([[t('shop.subgenre'), 0]]), name: "select-choice-prefecture", id: "select-choice-prefecture" %>
+
+            <%= select_tag :subsubgenre_id, options_for_select([[t('shop.subsubgenre'), 0]]), name: "select-choice-ward", id: "select-choice-ward" %>
+          </fieldset>
+        </div>
+        
+    <% end %>
   </div>
-  <% end %>
+
   <%= render 'layouts/footer' %>
+
 </div>
