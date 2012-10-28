@@ -1,0 +1,33 @@
+<% content_for :headers do %>
+    <%= stylesheet_link_tag "register_page" %>
+<% end %>
+
+<h1>
+    <%= t 'shop.registration' %>
+</h1>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+
+<%= devise_error_messages! %>
+
+<div class="field">
+    <%= f.label :account_name, t('shop.account') %>
+    <%= f.text_field :account_name %>
+</div>
+
+<div class="field">
+    <%= f.label t('shop.password') %>
+    <%= f.password_field :password %>
+</div>
+
+<div class="field">
+    <%= f.label t('shop.password_confirmation') %>
+    <%= f.password_field :password_confirmation %>
+</div>
+
+<div class="field">
+    <%= f.label ('shop.')
+</div>
+
+<div>
+    <%= f.submit "Sign up" %>
+</div><% end %><%= render "devise/shared/links" %>

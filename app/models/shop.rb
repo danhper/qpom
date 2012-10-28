@@ -30,7 +30,7 @@ class Shop < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :name, :name_furigana, :phone_number, :representative
+                  :name, :name_furigana, :phone_number, :representative, :account_name
 
   has_one :shop_settings, dependent: :destroy 
   has_one :genre
@@ -40,6 +40,12 @@ class Shop < ActiveRecord::Base
   belongs_to :station
 
   belongs_to :location
+
+  validates_presence_of :account_name, :on => :create
+  validates_confirmation_of :password
+  validates_presence_of :password, :on => :create
+  validates_presence_of :email
+  validates_uniqueness_of :email
 
   def station=(_station)
     @station = _station

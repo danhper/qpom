@@ -1,0 +1,123 @@
+@charset "utf-8";
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	background:#eee;
+	font-family:Verdana, "ＭＳ Ｐゴシック", sans-serif;
+}
+html {
+	overflow-y:scroll;
+}
+h1, h2, h3, h4, h5, h6 {
+}
+p, li, dt, dl {
+	line-height:1.6;
+}
+p {
+	margin:0 0 1em 0;
+}
+li {
+	list-style-type:none;
+}
+img {
+	border:0;
+}
+address {
+	font-style:normal;
+}
+.clear {
+	clear:both;
+}
+br {
+	clear: left;
+}
+
+.confirm_coupon .coupon_details {
+	line-height:30px;
+}
+.shop_register label, .shop_register input {
+	display: block;
+	width: 150px;
+	float: left;
+	margin-bottom: 10px;
+}
+.shop_register label {
+	text-align: right;
+	padding-right: 15px;
+}
+.shop_register, .genre_select {
+	margin:10px;
+}
+h1{
+	font-size:18px;
+	margin:10px;
+}
+
+
+
+table.userlist {
+  margin-top: 20px;
+  margin-bottom: 1em;
+  width: 570px;
+  border-collapse: separate;
+  border-spacing: 2px;
+  font-size: 100%;
+}
+
+table.userlist caption {
+  margin-top: 1em;
+}
+
+table.userlist th,
+table.userlist td {
+  padding: 4px 6px;
+}
+
+table.userlist th {
+  background: #1B3AB4;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 92%;
+  color: #FFF;
+}
+
+table.userlist td {
+  background: #E5EAFF;
+  text-align: right;
+  white-space: nowrap;
+}
+.button {
+	white-space:nowrap;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #999999), color-stop(1, #616161) );
+	background:-moz-linear-gradient( center top, #999999 5%, #616161 100% );
+ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#616161');
+	background-color:#999999;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:12px;
+	font-weight:normal;
+	padding:4px 15px;
+	text-decoration:none;
+}
+.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #616161), color-stop(1, #999999) );
+	background:-moz-linear-gradient( center top, #616161 5%, #999999 100% );
+ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#616161', endColorstr='#999999');
+	background-color:#616161;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+.button.big{
+	padding:5px 25px;
+	font-size:18px;
+	margin-left:100px;
+}
