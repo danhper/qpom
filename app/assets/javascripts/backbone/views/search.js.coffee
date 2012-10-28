@@ -3,6 +3,8 @@ class Qpom.Views.SearchView extends Backbone.View
 
     events:
         'click select option': 'loadSubList'
+        'change select option': 'loadSubList'
+
 
     loadSubList: (e) ->
         option = $(e.target)

@@ -81,11 +81,11 @@ class ShopsController < ApplicationController
     end
   end
 
-  # GET shops/my_shops
-  def my_shops
+  # GET shops/my
+  def my
     @shops = Shop.all
     respond_to do |format|
-      format.html # my_shops.html.erb
+      format.html { render template: 'shops/index'}
       format.json { render json: @shops }
     end
   end
@@ -99,6 +99,7 @@ class ShopsController < ApplicationController
     end
   end
 
+  # GET /shops/find
   def find
     respond_to do |format|
       format.html

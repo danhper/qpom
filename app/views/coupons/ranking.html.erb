@@ -1,0 +1,32 @@
+<div data-role="page" id="ranking" data-theme="e">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="c">
+		<%= link_to t('general.home'), root_path, "data-icon" => "home", "data-transition" => "slide", "data-direction" => "reverse" %>
+		<div id="header_logo">
+		    <%= image_tag "logo.png", alt: "main logo", width: 70, height: 28 %>
+		</div>	
+		<%= link_to t('general.menu'), "#", class: "ui-btn-right", "data-icon" => "check" %>
+		<div data-role="navbar" data-iconpos="left">
+			<ul>
+				<li> 
+					<%= link_to "使用回数", "#", "data-icon" => "plus", "data-theme" => "e", :class => "ui-btn-active ui-state-persist" %>
+				</li>
+				<li> 
+					<%= link_to "クーポン使用数", "#", "data-icon" => "plus", "data-theme" => "e" %>
+				</li>
+			</ul>
+			<ul>
+				<li> 
+					<%= link_to "シェア回数", "#", "data-icon" => "plus", "data-theme" => "e" %>
+				</li>
+				<li>
+					<%= link_to "マイ店登録数", "#", "data-icon" => "plus", "data-theme" => "e" %>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div data-role="content">
+		<%= render @coupons %>
+	</div>
+	<%= render 'layouts/footer' %>
+</div>

@@ -1,6 +1,6 @@
 class CouponsController < ApplicationController
   before_filter :authenticate_user!
-  
+
   # GET /coupons
   # GET /coupons.json
   def index
@@ -86,24 +86,34 @@ class CouponsController < ApplicationController
   def top
     @new_coupons = Coupon.all
     @recommended_coupons = Coupon.all
+    
     respond_to do |format|
-       format.html # top.html.erb
-       format.json { render json: [@new_coupons, @recommended_coupons] }     
+      format.html # top.html.erb
+      format.json { render json: [@new_coupons, @recommended_coupons] }
     end
   end
 
-   def show_new
+  def show_new
     @new_coupons = Coupon.all
+
     respond_to do |format|
-       format.html # show_new.html.erb
-       format.json { render json: @new_coupons }     
-     end
-   end
+      format.html # show_new.html.erb
+      format.json { render json: @new_coupons }
+    end
+  end
 
-   def share
-     respond_to do |format|
-       format.html # share.html.erb
-     end
-   end
+  def share
+    respond_to do |format|
+      format.html # share.html.erb
+    end
+  end
 
+  def ranking
+    @coupons = Coupon.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @coupons }
+    end
+  end
 end

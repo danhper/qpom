@@ -21,6 +21,7 @@ QpomPretest::Application.routes.draw do
       get 'top'
       get 'show_new'
       get 'share'
+      get 'ranking'
     end
   end
 
