@@ -3,7 +3,7 @@
   <%= render 'layouts/header' %>
 
   <div data-role="content">
-    <%= form_tag(controller: 'shops', action: 'find', method: :get)  do %>
+    <%= form_tag({controller: 'shops', action: 'find'}, method: "get")  do %>
 
         <%= text_field_tag :free_word, params[:free_word], type: "search", name: "search", id: "search-basic", value: "" %>
 
@@ -13,9 +13,9 @@
 
             <%= select_tag :area, options_for_select([[t('search.region'), 0]] + Area.all.collect { |a| [a.name, a.id]}) %>
 
-            <%= select_tag :prefecture, options_for_select([ [t('search.prefecture'), 0] ]), name: "select-choice-prefecture", id: "select-choice-prefecture" %>
+            <%= select_tag :prefecture, options_for_select([ [t('search.prefecture'), 0] ]) %> 
 
-            <%= select_tag :town, options_for_select([[t('search.town'), 0]]), name: "select-choice-ward", id: "select-choice-ward" %>
+            <%= select_tag :town, options_for_select([[t('search.town'), 0]]) %>
           </fieldset>
         </div>
 
@@ -24,9 +24,9 @@
             <legend><%= t 'search.genre_long' %></legend>
             <%= select_tag :genre, options_for_select([[t('shop.genre'), 0]]) %>
 
-            <%= select_tag :subgenre, options_for_select([[t('shop.subgenre'), 0]]), name: "select-choice-prefecture", id: "select-choice-prefecture" %>
+            <%= select_tag :subgenre, options_for_select([[t('shop.subgenre'), 0]]) %>
 
-            <%= select_tag :subsubgenre, options_for_select([[t('shop.subsubgenre'), 0]]), name: "select-choice-ward", id: "select-choice-ward" %>
+            <%= select_tag :subsubgenre, options_for_select([[t('shop.subsubgenre'), 0]]) %>
           </fieldset>
         </div>
 
@@ -35,6 +35,6 @@
 
   <%= render 'layouts/footer' %>
 <script>
-  new Qpom.Views.SearchView
+  new Qpom.Views.SearchView()
 </script>
 </div>
