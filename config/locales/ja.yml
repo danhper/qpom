@@ -18,6 +18,7 @@ ja:
     email: メールアドレス
     name: 店舗名
     representative: 代表者
+    area: 地方
     prefecture: 住所（都道府県）
     town: 住所（市区町村）
     address: 住所（番地等）

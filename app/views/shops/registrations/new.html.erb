@@ -15,19 +15,63 @@
 </div>
 
 <div class="field">
-    <%= f.label t('shop.password') %>
+    <%= f.label :password, t('shop.password') %>
     <%= f.password_field :password %>
 </div>
 
 <div class="field">
-    <%= f.label t('shop.password_confirmation') %>
+    <%= f.label :password_confirmation, t('shop.password_confirmation') %>
     <%= f.password_field :password_confirmation %>
 </div>
 
 <div class="field">
-    <%= f.label ('shop.')
+    <%= f.label :email, t('shop.email') %>
+    <%= f.email_field :email %>
 </div>
 
+<div class="field">
+    <%= f.label :name, t('shop.name') %>
+    <%= f.text_field :name %>
+</div>
+
+<div class="field">
+    <%= f.label :representative, t('shop.representative') %>
+    <%= f.text_field :representative %>
+</div>
+
+<div class="field">
+    <%= f.label :area, t('shop.area') %>
+    <%= f.select :area, options_for_select([[t('shop.area'), 0]] + Area.all.collect { |a| [a.name, a.id]}) %>
+</div>
+
+<div class="field">
+    <%= f.label :prefecture, t('shop.prefecture') %>
+    <%= f.select :prefecture, options_for_select([ [t('shop.prefecture'), 0] ]) %> 
 <div>
+
+<div class="field">
+    <%= f.label :town, t('shop.town') %>
+    <%= f.select :town, options_for_select([[t('shop.town'), 0]]) %>
+</div>
+
+<div class="field">
+    <%= f.label :access, t('shop.access') %>
+    <%= f.text_field :access %>
+</div>
+
+<div class="field">
+    <%= f.label :phone_number, t('shop.phone') %>
+    <%= f.text_field :phone_number %>
+</div>
+
+<div class="field">
+    <%= f.label :fax t('shop.fax') %>
+    <%= f.text_field :fax %>
+</div>
+
+<div class="field">
+    <%= f.label t('business_hour') %>
+</div>
+
     <%= f.submit "Sign up" %>
 </div><% end %><%= render "devise/shared/links" %>

@@ -30,7 +30,11 @@ class Shop < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :name, :name_furigana, :phone_number, :representative, :account_name
+                  :name, :name_furigana, :phone_number, :representative, 
+                  :account_name, :area, :prefecture, :town, :address,
+                  :business_hour
+
+
 
   has_one :shop_settings, dependent: :destroy 
   has_one :genre
