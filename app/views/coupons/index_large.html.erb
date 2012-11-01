@@ -1,0 +1,13 @@
+<% content_for :headers do %>
+    <%= stylesheet_link_tag "register_page" %>
+    <%= javascript_include_tag 'shop_administration' %>
+<% end %>
+
+<div class="confirm_coupon">
+  <h1><%= t 'coupon.all' %></h1>
+  <table width="80%" border="0">
+      <% @coupons.each do |coupon| %>
+          <%= render partial: 'coupons/coupon_large', object: coupon %>
+      <% end %>
+  </table>
+</div>

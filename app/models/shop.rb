@@ -19,6 +19,15 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  account_name           :string(255)
+#  prefecture_id          :integer
+#  area_id                :integer
+#  town_id                :integer
+#  address                :string(255)
+#  access                 :string(255)
+#  fax                    :string(255)
+#  open_time              :time
+#  close_time             :time
 #
 
 class Shop < ActiveRecord::Base
@@ -31,8 +40,9 @@ class Shop < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :name, :name_furigana, :phone_number, :representative, 
-                  :account_name, :area, :prefecture, :town, :address,
-                  :business_hour
+                  :account_name, :address, :business_hour, :access,
+                  :open_time, :close_time, :area_id, :prefecture_id, :town_id, 
+                  :fax
 
 
 
@@ -42,8 +52,10 @@ class Shop < ActiveRecord::Base
   has_many :coupons, dependent: :destroy
 
   belongs_to :station
+  belongs_to :area
+  belongs_to :prefecture
+  belongs_to :town
 
-  belongs_to :location
 
   validates_presence_of :account_name, :on => :create
   validates_confirmation_of :password

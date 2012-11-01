@@ -25,7 +25,7 @@ ja:
     access: アクセス
     phone: 電話番号
     fax: FAX番号
-    business_hour: 営業時間
+    business_hours: 営業時間
     holidays: 定休日
     url: URL
     station: 最寄り駅
@@ -36,6 +36,7 @@ ja:
     code: コード
     name: クーポン名
     description: 詳細
+    all: クーポン一覧
     coupon: クーポン
     new: 新着クーポン
     recommended: おすすめクーポン
@@ -43,8 +44,11 @@ ja:
     edit: クーポンを編集する
     valid_until: "%{date}まで有効"
     valid_from_to: "%{start}から%{stop}まで有効"
+    validity: 有効期限
     ranking: ランキング
     not_available: 只今ご利用いただけるクーポンはございません。
+    target: 対象
+    stop: 配信停止
   buttons:
     search: 検索
     create: 作成

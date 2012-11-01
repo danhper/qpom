@@ -13,6 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.mobile
-//= require underscore
-//= require backbone
-//= require backbone/qpom_pretest.js
+//= require backbone/qpom_pretest

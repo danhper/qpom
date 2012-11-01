@@ -19,6 +19,15 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  account_name           :string(255)
+#  prefecture_id          :integer
+#  area_id                :integer
+#  town_id                :integer
+#  address                :string(255)
+#  access                 :string(255)
+#  fax                    :string(255)
+#  open_time              :time
+#  close_time             :time
 #
 
 require 'spec_helper'

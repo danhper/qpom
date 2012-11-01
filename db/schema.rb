@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121027031609) do
+ActiveRecord::Schema.define(:version => 20121101094725) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -94,6 +94,15 @@ ActiveRecord::Schema.define(:version => 20121027031609) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "account_name"
+    t.integer  "prefecture_id"
+    t.integer  "area_id"
+    t.integer  "town_id"
+    t.string   "address"
+    t.string   "access"
+    t.string   "fax"
+    t.time     "open_time"
+    t.time     "close_time"
   end
 
   add_index "shops", ["email"], :name => "index_shops_on_email", :unique => true

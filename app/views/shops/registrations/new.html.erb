@@ -1,7 +1,9 @@
 <% content_for :headers do %>
     <%= stylesheet_link_tag "register_page" %>
+    <%= javascript_include_tag 'shop_administration' %>
 <% end %>
 
+<div class="shop_register">
 <h1>
     <%= t 'shop.registration' %>
 </h1>
@@ -13,65 +15,77 @@
     <%= f.label :account_name, t('shop.account') %>
     <%= f.text_field :account_name %>
 </div>
-
+<br>
 <div class="field">
     <%= f.label :password, t('shop.password') %>
     <%= f.password_field :password %>
 </div>
-
+<br>
 <div class="field">
     <%= f.label :password_confirmation, t('shop.password_confirmation') %>
     <%= f.password_field :password_confirmation %>
 </div>
-
+<br>
 <div class="field">
     <%= f.label :email, t('shop.email') %>
     <%= f.email_field :email %>
 </div>
-
+<br>
 <div class="field">
     <%= f.label :name, t('shop.name') %>
     <%= f.text_field :name %>
 </div>
-
+<br>
 <div class="field">
     <%= f.label :representative, t('shop.representative') %>
     <%= f.text_field :representative %>
 </div>
-
+<br>
+<fieldset>
 <div class="field">
-    <%= f.label :area, t('shop.area') %>
-    <%= f.select :area, options_for_select([[t('shop.area'), 0]] + Area.all.collect { |a| [a.name, a.id]}) %>
+    <%= f.label :area_id, t('shop.area') %>
+    <%= f.select :area_id, options_for_select([[t('shop.area'), 0]] + Area.all.collect { |a| [a.name, a.id]}) %>
 </div>
-
+<br>
 <div class="field">
-    <%= f.label :prefecture, t('shop.prefecture') %>
-    <%= f.select :prefecture, options_for_select([ [t('shop.prefecture'), 0] ]) %> 
-<div>
-
-<div class="field">
-    <%= f.label :town, t('shop.town') %>
-    <%= f.select :town, options_for_select([[t('shop.town'), 0]]) %>
+    <%= f.label :prefecture_id, t('shop.prefecture') %>
+    <%= f.select :prefecture_id, options_for_select([ [t('shop.prefecture'), 0] ]) %> 
 </div>
-
+<br>
+<div class="field">
+    <%= f.label :town_id, t('shop.town') %>
+    <%= f.select :town_id, options_for_select([[t('shop.town'), 0]]) %>
+</div>
+<br>
+</fieldset>
 <div class="field">
     <%= f.label :access, t('shop.access') %>
     <%= f.text_field :access %>
 </div>
-
+<br>
 <div class="field">
     <%= f.label :phone_number, t('shop.phone') %>
     <%= f.text_field :phone_number %>
 </div>
-
+<br>
 <div class="field">
-    <%= f.label :fax t('shop.fax') %>
+    <%= f.label :fax, t('shop.fax') %>
     <%= f.text_field :fax %>
 </div>
-
+<br>
 <div class="field">
-    <%= f.label t('business_hour') %>
+    <%= f.label :open_time, t('business_hours') %>
+    <%= f.time_select :open_time %>
+    ~
+    <%= f.time_select :close_time %>
 </div>
+<br>
 
-    <%= f.submit "Sign up" %>
-</div><% end %><%= render "devise/shared/links" %>
+    <%= f.submit "Sign up", class: "button big" %>
+<% end %>
+
+<script>
+    new Qpom.Views.ListView()
+</script>
+
+</div>

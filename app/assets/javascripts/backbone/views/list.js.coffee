@@ -1,17 +1,16 @@
 class Qpom.Views.ListView extends Backbone.View
-    el: 'body'
+    el: '#search'
 
     events:
+        'click select option': 'loadSubList'
         'vclick select option': 'loadSubList'
-        'change select': 'loadSubList'
+
 
     loadSubList: (e) ->
-        target = $(e.target)
-
-        selectTag = if target.is('option') then target.parent('select') else target
-
+        option = $(e.target)
+        selectTag = option.parent('select')
         selectList = selectTag.parents('fieldset').find('select')
-        searchId = parseInt(selectTag.val())
+        searchId = parseInt(option.val())
 
         for i in [0..selectList.size()]
             if selectTag.attr('id') == selectList.eq(i).attr('id')
@@ -39,5 +38,4 @@ class Qpom.Views.ListView extends Backbone.View
                 option = $('<option />').attr 'value', item.get 'id' 
                 option.text item.get('name')
                 nextSelect.append option
-
 
