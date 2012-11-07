@@ -43,6 +43,9 @@ class CouponsController < ApplicationController
   # POST /coupons.json
   def create
     @coupon = Coupon.new(params[:coupon])
+    file = params[:image]
+
+
 
     respond_to do |format|
       if @coupon.save

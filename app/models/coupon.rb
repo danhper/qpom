@@ -12,12 +12,14 @@
 #  validity_end_datetime   :datetime
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
+#  target                  :string(255)
+#  max_usage               :integer
 #
 
 class Coupon < ActiveRecord::Base
   attr_accessible :code, :description, :image, :name, :sharable, 
 		:use_times_left, :validity_end_datetime, :validity_start_datetime,
-        :target
+        :target, :max_usage
 
   belongs_to :shop
 

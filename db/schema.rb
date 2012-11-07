@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121101094725) do
+ActiveRecord::Schema.define(:version => 20121101102517) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20121101094725) do
     t.datetime "validity_end_datetime"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
+    t.string   "target"
+    t.integer  "max_usage"
   end
 
   create_table "genres", :force => true do |t|

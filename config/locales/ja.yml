@@ -49,6 +49,8 @@ ja:
     not_available: 只今ご利用いただけるクーポンはございません。
     target: 対象
     stop: 配信停止
+    create: クーポンを発行します
+    usage: 使用回数
   buttons:
     search: 検索
     create: 作成
