@@ -68,4 +68,16 @@ class Shop < ActiveRecord::Base
     _station.shops << self
   end
 
+  def created_coupon_number_in_this_month
+	23
+	# Let's go Izakaya.
+  end
+
+  def used_coupon_number_in_this_month
+	123
+  end
+
+  def shared_coupon_number_in_this_month
+	777
+  end
 end

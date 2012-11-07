@@ -12,12 +12,14 @@
 			</tr>
 		</thead>
 		<tbody>
+			<% @shops.each do |shop| %>
 			<tr>
-				<td><a href="shop">エーテル</a></td>
-				<td>80000400枚</td>
-				<td>98枚</td>
-				<td>1回</td>
+				<td><a href="shop"><%= shop.name %></a></td>
+				<td><%= shop.created_coupon_number_in_this_month %>枚</td>
+				<td><%= shop.used_coupon_number_in_this_month %>枚</td>
+				<td><%= shop.shared_coupon_number_in_this_month %>回</td>
 			</tr>
+		<% end %>
 		</tbody>
 	</table>
 </div>

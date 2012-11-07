@@ -5,6 +5,7 @@ class AdminController < ApplicationController
   end
 
   def shoplist
+	  @shops = Shop.all
   end
 
   def couponlist
