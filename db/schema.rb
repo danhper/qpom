@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121101094725) do
+ActiveRecord::Schema.define(:version => 20121101100826) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20121101094725) do
     t.datetime "validity_end_datetime"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
+    t.string   "target"
   end
 
   create_table "genres", :force => true do |t|
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20121101094725) do
     t.string   "address"
     t.integer  "prefecture_id"
     t.integer  "town_id"
+    t.integer  "area_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
