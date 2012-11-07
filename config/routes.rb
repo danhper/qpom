@@ -1,5 +1,13 @@
 QpomPretest::Application.routes.draw do
 
+  get "admin/userlist"
+
+  get "admin/shoplist"
+
+  get "admin/couponlist"
+
+  get "admin/shop"
+
   devise_for :shops
 
   devise_for :users, skip: [:sessions], controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
