@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>QPOM管理ページ</title>
+		<%= stylesheet_link_tag "admin", :media => "all" %>
+		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" %>
+		<%= javascript_include_tag "stupidtable.min" %>
+		<script>
+			$(function(){
+				$("table").stupidtable(); /* sort table */
+				$("#tab li").click(function() { /* switch tab */
+					var num = $("#tab li").index(this);
+					$(".content_wrapper").addClass('hidden');
+					$(".content_wrapper").eq(num).removeClass('hidden');
+					$("#tab li").removeClass('select');
+					$(this).addClass('select');
+				});
+				$("table.coupon_list tr.summary").addClass("odd"); /* expand row */
+				$("table.coupon_list tr.detail").hide();
+				$("table.coupon_list tr:first-child").show();
+				$("table.coupon_list tr.odd").click(function(){
+					$(this).next("tr").toggle();
+					$(this).find(".arrow").toggleClass("up");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="page">
+			<div id="header-wrapper">
+				<div id="header">
+					<a href="shoplist"><%= image_tag('qpom_logo.png', :class => "logo", :height => 30) %></a>
+				</div>
+			</div>
+			<div id="body-wrapper" class="shop">
+				<div id="main">
+					<%= yield %>
+				</div>
+
+				<div id="footer">
+					<span id="copyright">© <%= Time.now.year %> QPOM</span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+
