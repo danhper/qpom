@@ -69,7 +69,7 @@ class CouponsController < ApplicationController
       @coupon.image_file = params[:coupon][:image_file]
       upload_file(@coupon)
     end
-    
+
     respond_to do |format|
       if @coupon.update_attributes(params[:coupon])
         format.html { redirect_to @coupon, notice: 'Coupon was successfully updated.' }
@@ -127,12 +127,18 @@ class CouponsController < ApplicationController
     end
   end
 
-  def current_shop_coupons
+  def current_shop
     @coupons = Coupon.where('shop_id = ?', current_shop.id)
 
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @coupons }
     end
+  end
+
+  # POST /coupons/use/1
+  def use
+    @coupon = Coupon.find(params[:id])
+    @user = current_user
   end
 end

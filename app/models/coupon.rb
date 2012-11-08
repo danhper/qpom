@@ -20,7 +20,7 @@
 class Coupon < ActiveRecord::Base
     attr_accessible :code, :description, :image, :name, :sharable,
         :use_times_left, :validity_end_datetime, :validity_start_datetime,
-        :target, :max_usage, :image_file
+        :target, :max_usage, :image_file, :used_times
 
     attr_accessor :image_file
 

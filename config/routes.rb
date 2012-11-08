@@ -24,6 +24,9 @@ QpomPretest::Application.routes.draw do
       get 'current_shop_coupons'
     end
     resources :coupons do
+      member do
+        post 'use'
+      end
       collection do
         get 'top'
         get 'show_new'

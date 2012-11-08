@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121108045900) do
+ActiveRecord::Schema.define(:version => 20121108093059) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20121108045900) do
     t.string   "target"
     t.integer  "max_usage"
     t.integer  "shop_id"
+    t.integer  "used_times"
   end
 
   create_table "genres", :force => true do |t|
