@@ -64,6 +64,12 @@ class CouponsController < ApplicationController
   # PUT /coupons/1.json
   def update
     @coupon = Coupon.find(params[:id])
+
+    if params[:coupon].has_key?(:image_file)
+      @coupon.image_file = params[:coupon][:image_file]
+      upload_file(@coupon)
+    end
+    
     respond_to do |format|
       if @coupon.update_attributes(params[:coupon])
         format.html { redirect_to @coupon, notice: 'Coupon was successfully updated.' }
