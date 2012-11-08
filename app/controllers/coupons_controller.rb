@@ -46,8 +46,9 @@ class CouponsController < ApplicationController
   # POST /coupons.json
   def create
     @coupon = Coupon.new(params[:coupon])
-    uploaded_infos = Cloudinary::Uploader.upload(@coupon.image_file)
-    @coupon.image = uploaded_infos[:url]
+    image_id = SecureRandom.urlsafe_base64
+    Cloudinary::Uploader.upload(@coupon.image_file, public_id: image_id)
+    @coupon.image = image_id + File.extname(@coupon.image_file.original_filename)
     @coupon.shop = current_shop
 
     respond_to do |format|
@@ -65,7 +66,6 @@ class CouponsController < ApplicationController
   # PUT /coupons/1.json
   def update
     @coupon = Coupon.find(params[:id])
-
     respond_to do |format|
       if @coupon.update_attributes(params[:coupon])
         format.html { redirect_to @coupon, notice: 'Coupon was successfully updated.' }

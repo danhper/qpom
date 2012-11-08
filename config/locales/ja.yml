@@ -51,6 +51,9 @@ ja:
     stop: 配信停止
     create: クーポンを発行します
     usage: 使用回数
+    confirm_use: このクーポン使いますか？
+    use_now: 今すぐ使う
+    share: 共有する
   buttons:
     search: 検索
     create: 作成
