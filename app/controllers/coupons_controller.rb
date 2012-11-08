@@ -1,5 +1,8 @@
 class CouponsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_shop! rescue redirect_to new_shop_session_path,
+      only: [:new, :create, :edit, :update, :delete]
+  before_filter :authenticate_user!, except: [:show, :new, :create, :edit, :update, :delete]
+  before_filter :signed_in, only: [:show]
 
   # GET /coupons
   # GET /coupons.json
@@ -43,13 +46,13 @@ class CouponsController < ApplicationController
   # POST /coupons.json
   def create
     @coupon = Coupon.new(params[:coupon])
-    file = params[:image]
-
-
+    uploaded_infos = Cloudinary::Uploader.upload(@coupon.image_file)
+    @coupon.image = uploaded_infos[:url]
+    @coupon.shop = current_shop
 
     respond_to do |format|
       if @coupon.save
-        format.html { redirect_to @coupon, notice: 'Coupon was successfully created.' }
+        format.html { redirect_to [@coupon.shop, @coupon], notice: 'Coupon was successfully created.' }
         format.json { render json: @coupon, status: :created, location: @coupon }
       else
         format.html { render action: "new" }
@@ -116,6 +119,15 @@ class CouponsController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.json { render json: @coupons }
+    end
+  end
+
+  def current_shop_coupons
+    @coupons = Coupon.where('shop_id = ?', current_shop.id)
+
+    respond_to do |format|
+      format.html { render :index }
       format.json { render json: @coupons }
     end
   end

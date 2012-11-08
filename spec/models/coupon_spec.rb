@@ -14,6 +14,7 @@
 #  updated_at              :datetime         not null
 #  target                  :string(255)
 #  max_usage               :integer
+#  shop_id                 :string(255)
 #
 
 require 'spec_helper'

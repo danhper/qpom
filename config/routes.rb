@@ -21,15 +21,15 @@ QpomPretest::Application.routes.draw do
       get 'my'
       get 'search'
       get 'find'
+      get 'current_shop_coupons'
     end
-  end
-
-  resources :coupons do
-    collection do
-      get 'top'
-      get 'show_new'
-      get 'share'
-      get 'ranking'
+    resources :coupons do
+      collection do
+        get 'top'
+        get 'show_new'
+        get 'share'
+        get 'ranking'
+      end
     end
   end
 

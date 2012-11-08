@@ -1,4 +1,6 @@
 class ShopsController < ApplicationController
+  before_filter :authenticate_shop! rescue redirect_to new_shop_session_path,
+      skip: [:new, :create]
   # GET /shops
   # GET /shops.json
   def index
