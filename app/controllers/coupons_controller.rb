@@ -46,9 +46,7 @@ class CouponsController < ApplicationController
   # POST /coupons.json
   def create
     @coupon = Coupon.new(params[:coupon])
-    image_id = SecureRandom.urlsafe_base64
-    Cloudinary::Uploader.upload(@coupon.image_file, public_id: image_id)
-    @coupon.image = image_id + File.extname(@coupon.image_file.original_filename)
+    upload_file(@coupon)
     @coupon.shop = current_shop
 
     respond_to do |format|

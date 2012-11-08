@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
         redirect_to new_user_session unless user_signed_in? or shop_signed_in?
     end
 
+    def upload_file(coupon)
+        image_id = SecureRandom.urlsafe_base64
+        Cloudinary::Uploader.upload(coupon.image_file, public_id: image_id)
+        coupon.image = image_id + File.extname(coupon.image_file.original_filename)
+    end
+
 end
