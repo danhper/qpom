@@ -17,7 +17,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             sign_in_and_redirect @user, :event => :authentication
         else
             session["new_user"] = @user
-            redirect_to new_user_path
+            redirect_to new_user_registration_path
         end
     end
 end

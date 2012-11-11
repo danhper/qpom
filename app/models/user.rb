@@ -33,8 +33,6 @@ class User < ActiveRecord::Base
     :name, :provider, :uid
 
   validates_presence_of :name, :on => :create
-  validates_confirmation_of :password
-  validates_presence_of :password, :on => :create
   validates_presence_of :email
   validates_uniqueness_of :email
 
@@ -61,6 +59,7 @@ class User < ActiveRecord::Base
         user.name = infos[:name]
         user.provider = infos[:provider]
         user.uid = infos[:uid]
+        user.password = Devise.friendly_token[0, 20]
       end
     end
   end

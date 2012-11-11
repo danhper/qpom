@@ -1,16 +1,24 @@
 class CouponsController < ApplicationController
-  before_filter :authenticate_shop! rescue redirect_to new_shop_session_path,
-      only: [:new, :create, :edit, :update, :delete]
   before_filter :authenticate_user!, except: [:show, :new, :create, :edit, :update, :delete]
-  before_filter :signed_in, only: [:show]
+  before_filter :authenticate_shop!, :only => [:new, :edit, :update, :delete]
+  before_filter :signed_in, only: [:index, :show]
 
   # GET /coupons
   # GET /coupons.json
   def index
-    @coupons = Coupon.all
+    @coupons = Coupon.where('shop_id = ?', params[:shop_id])
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html do
+        if current_user != nil
+          render 'index'
+        elsif current_shop != nil
+          is_current_shop(Shop.find(params[:shop_id]))
+          render 'shop_index'
+        else
+          redirect_to root_path
+        end
+      end
       format.json { render json: @coupons }
     end
   end
@@ -45,9 +53,9 @@ class CouponsController < ApplicationController
   # POST /coupons
   # POST /coupons.json
   def create
-    @coupon = Coupon.new(params[:coupon])
+    @coupon = Coupon.new(params[:coupon]) 
+    @coupon.shop = current_shop  # fix to @coupon = current_shop.coupons.build(params[:coupon])
     upload_file(@coupon)
-    @coupon.shop = current_shop
 
     respond_to do |format|
       if @coupon.save
@@ -94,11 +102,10 @@ class CouponsController < ApplicationController
   end
 
   def top
-    @new_coupons = Coupon.all
-    @recommended_coupons = Coupon.all
+    @coupons = Coupon.all
     
     respond_to do |format|
-      format.html # top.html.erb
+      format.html { render 'index' }
       format.json { render json: [@new_coupons, @recommended_coupons] }
     end
   end

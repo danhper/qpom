@@ -12,9 +12,11 @@ QpomPretest::Application.routes.draw do
 
   devise_for :users, skip: [:sessions], controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
-  root to: 'coupons#index'
+  root to: 'coupons#top'
 
   resources :users
+
+  match 'coupons/ranking' => 'coupons#ranking'
 
   resources :shops do
     collection do
@@ -28,10 +30,8 @@ QpomPretest::Application.routes.draw do
         post 'use'
       end
       collection do
-        get 'top'
         get 'show_new'
         get 'share'
-        get 'ranking'
       end
     end
   end
