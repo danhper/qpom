@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+    @user = User.new_with_session(params, session)
 
     respond_to do |format|
       if @user.save

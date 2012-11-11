@@ -8,13 +8,22 @@ QpomPretest::Application.routes.draw do
 
   get "admin/shop"
 
-  devise_for :shops
+  devise_for :shops, path_names: {
+    sign_in: 'login',
+    sign_up: 'register'
+  } do 
+    get "/shops/logout" => "devise/sessions#destroy", :as => :destroy_shop_session
+  end
 
   devise_for :users, skip: [:sessions], controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
-  root to: 'coupons#index'
+  root to: 'coupons#top'
 
   resources :users
+
+  match 'coupons/ranking' => 'coupons#ranking'
+
+  match 'coupons/my' => 'coupons#current_shop'
 
   resources :shops do
     collection do
@@ -22,14 +31,14 @@ QpomPretest::Application.routes.draw do
       get 'search'
       get 'find'
     end
-  end
-
-  resources :coupons do
-    collection do
-      get 'top'
-      get 'show_new'
-      get 'share'
-      get 'ranking'
+    resources :coupons do
+      member do
+        post 'use'
+      end
+      collection do
+        get 'show_new'
+        get 'share'
+      end
     end
   end
 

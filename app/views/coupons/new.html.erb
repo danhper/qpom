@@ -1,0 +1,35 @@
+<% content_for :headers do %>
+    <%= stylesheet_link_tag "register_page" %>
+    <%= javascript_include_tag 'shop_administration' %>
+<% end %>
+
+<div class="station_select">
+    <h1><%= t 'coupon.create' %></h1>
+    <%= form_for @coupon, url: { action: "create" } do |f| %>
+
+    <div class="field">
+        <%= f.label :name, t('coupon.name') %>
+        <%= f.text_field :name %>
+    </div> 
+    <br>
+    <div class="field">
+        <%= f.label :description, t('coupon.description') %>
+        <%= f.text_field :description %>
+    </div>
+    <br>
+    <div class="field">
+        <%= f.label :validity_start_datetime, t('coupon.validity') %>
+        <%= f.datetime_select :validity_start_datetime %>
+        <%= f.label :validity_end_datetime, '~' %>
+        <%= f.datetime_select :validity_end_datetime %>
+    </div>
+    <br>
+    <div class="field">
+        <%= f.label :image_file, t('coupon.image_file') %>
+        <%= f.file_field :image_file %>
+    </div>
+    <br>
+    <%= f.submit t('buttons.create'), class: "button big" %>
+    <% end %>
+
+</div>

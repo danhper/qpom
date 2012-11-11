@@ -1,13 +1,24 @@
 class CouponsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:index, :show, :new, :create, :edit, :update, :delete, :logged_shop]
+  before_filter :authenticate_shop!, :only => [:new, :edit, :update, :delete, :logged_shop]
+  before_filter :signed_in, only: [:index, :show]
 
   # GET /coupons
   # GET /coupons.json
   def index
-    @coupons = Coupon.all
+    @coupons = Coupon.where('shop_id = ?', params[:shop_id])
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html do
+        if user_signed_in?
+          render 'index'
+        elsif shop_signed_in?
+          is_current_shop(Shop.find(params[:shop_id]))
+          render 'shop_index'
+        else
+          redirect_to root_path
+        end
+      end
       format.json { render json: @coupons }
     end
   end
@@ -42,11 +53,13 @@ class CouponsController < ApplicationController
   # POST /coupons
   # POST /coupons.json
   def create
-    @coupon = Coupon.new(params[:coupon])
+    @coupon = Coupon.new(params[:coupon]) 
+    @coupon.shop = current_shop  # fix to @coupon = current_shop.coupons.build(params[:coupon])
+    upload_file(@coupon)
 
     respond_to do |format|
       if @coupon.save
-        format.html { redirect_to @coupon, notice: 'Coupon was successfully created.' }
+        format.html { redirect_to [@coupon.shop, @coupon], notice: 'Coupon was successfully created.' }
         format.json { render json: @coupon, status: :created, location: @coupon }
       else
         format.html { render action: "new" }
@@ -59,6 +72,11 @@ class CouponsController < ApplicationController
   # PUT /coupons/1.json
   def update
     @coupon = Coupon.find(params[:id])
+
+    if params[:coupon].has_key?(:image_file)
+      @coupon.image_file = params[:coupon][:image_file]
+      upload_file(@coupon)
+    end
 
     respond_to do |format|
       if @coupon.update_attributes(params[:coupon])
@@ -84,11 +102,10 @@ class CouponsController < ApplicationController
   end
 
   def top
-    @new_coupons = Coupon.all
-    @recommended_coupons = Coupon.all
+    @coupons = Coupon.all
     
     respond_to do |format|
-      format.html # top.html.erb
+      format.html { render 'index' }
       format.json { render json: [@new_coupons, @recommended_coupons] }
     end
   end
@@ -115,5 +132,20 @@ class CouponsController < ApplicationController
       format.html
       format.json { render json: @coupons }
     end
+  end
+
+  def logged_shop
+    @coupons = Coupon.where('shop_id = ?', current_shop.id)
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @coupons }
+    end
+  end
+
+  # POST /coupons/use/1
+  def use
+    @coupon = Coupon.find(params[:id])
+    @user = current_user
   end
 end

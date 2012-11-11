@@ -1,0 +1,9 @@
+development:
+  cloud_name: "htju9dds3"
+  api_key: "352376685489143"
+  api_secret: "07o_xdn5xFlAN5BiVijWPPsqn_I"
+
+production:
+  cloud_name: "htju9dds3"
+  api_key: "352376685489143"
+  api_secret: "07o_xdn5xFlAN5BiVijWPPsqn_I"

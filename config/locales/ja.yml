@@ -4,6 +4,7 @@ ja:
     favorite: お気に入り
     menu: メニュー
     back: 戻る
+    to_shop_login: 管理者はこちらからからログインしてください。
   shop:
     shop: お店
     search: お店を探す
@@ -36,6 +37,7 @@ ja:
     code: コード
     name: クーポン名
     description: 詳細
+    description_long: クーポン詳細
     all: クーポン一覧
     coupon: クーポン
     new: 新着クーポン
@@ -49,6 +51,12 @@ ja:
     not_available: 只今ご利用いただけるクーポンはございません。
     target: 対象
     stop: 配信停止
+    create: クーポンを発行します
+    usage: 使用回数
+    confirm_use: このクーポン使いますか？
+    use_now: 今すぐ使う
+    share: 共有する
+    users: 所有者一覧
   buttons:
     search: 検索
     create: 作成
@@ -63,7 +71,3 @@ ja:
     region: 地方
     prefecture: 都道府県
     town: 市区町村
-  date:
-    formats:
-      ymd: ! 'Y年m月d日'
-      md: ! 'm月d日'

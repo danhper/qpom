@@ -1,0 +1,44 @@
+<% content_for :headers do %>
+    <%= stylesheet_link_tag "register_page" %>
+    <%= javascript_include_tag 'shop_administration' %>
+<% end %>
+
+<div class="confirm_coupon">
+  <h1><%= t 'coupon.description_long' %></h1>
+<table width="80%" border="0">
+  <tr>
+    <td><%= cl_image_tag @coupon.image %></td>
+    <td class="coupon_details">
+        <%= t('coupon.name') + ':' + @coupon.name %> <br />
+        <%= t('coupon.description') + ':' + @coupon.description %> <br />
+        <%= t('coupon.validity') + ':' + validity_time(@coupon) %> <br />
+        <%= t('coupon.target') + ':' + coupon.target unless coupon.target.nil? %>
+    <span class="button big"><%= coupon.stop %></span></td>
+  </tr>
+</table>
+<table class="userlist">
+  <caption><%= coupon.users %></caption>
+  <tr>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">ID</th>
+    <th scope="col">利用</th>
+    <th scope="col">登録日</th>
+    <th scope="col">お気に入り</th>
+    <th scope="col">マイ店登録数</th>
+    <th scope="col">お気に入り件数</th>
+    <th scope="col">性別</th>
+    <th scope="col">入手方法</th>
+  </tr>
+  <tr>
+    <td><div class="button">詳細</div></td>
+    <td>5624</td>
+    <td>○</td>
+    <td>2012/04/21</td>
+    <td>○</td>
+    <td>4</td>
+    <td>4</td>
+    <td>男</td>
+    <td>シェア</td>
+  </tr>
+</table>
+</div>

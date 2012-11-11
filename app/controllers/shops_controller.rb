@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  before_filter :authenticate_shop!, except: [:new, :create, :search]
   # GET /shops
   # GET /shops.json
   def index

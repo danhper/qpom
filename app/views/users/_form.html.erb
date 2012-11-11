@@ -13,23 +13,11 @@
 
 <div class="actions">
   <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div> 
   <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div>
-    <%= link_to t("general.back"), coupons_path, class: %w[button medium] %>
+    <%= link_to t("general.back"), root_path, class: %w[button medium] %>
     <%= f.submit t('buttons.create'), :class => %w[button medium] %>
   </div>
 </div>
