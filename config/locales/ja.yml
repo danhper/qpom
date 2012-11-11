@@ -4,6 +4,7 @@ ja:
     favorite: お気に入り
     menu: メニュー
     back: 戻る
+    to_shop_login: 管理者はこちらからからログインしてください。
   shop:
     shop: お店
     search: お店を探す
@@ -36,6 +37,7 @@ ja:
     code: コード
     name: クーポン名
     description: 詳細
+    description_long: クーポン詳細
     all: クーポン一覧
     coupon: クーポン
     new: 新着クーポン
@@ -54,6 +56,7 @@ ja:
     confirm_use: このクーポン使いますか？
     use_now: 今すぐ使う
     share: 共有する
+    users: 所有者一覧
   buttons:
     search: 検索
     create: 作成

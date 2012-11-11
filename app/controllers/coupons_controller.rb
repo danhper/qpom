@@ -1,6 +1,6 @@
 class CouponsController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :new, :create, :edit, :update, :delete]
-  before_filter :authenticate_shop!, :only => [:new, :edit, :update, :delete]
+  before_filter :authenticate_user!, except: [:index, :show, :new, :create, :edit, :update, :delete, :logged_shop]
+  before_filter :authenticate_shop!, :only => [:new, :edit, :update, :delete, :logged_shop]
   before_filter :signed_in, only: [:index, :show]
 
   # GET /coupons
@@ -10,9 +10,9 @@ class CouponsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        if current_user != nil
+        if user_signed_in?
           render 'index'
-        elsif current_shop != nil
+        elsif shop_signed_in?
           is_current_shop(Shop.find(params[:shop_id]))
           render 'shop_index'
         else
@@ -134,7 +134,7 @@ class CouponsController < ApplicationController
     end
   end
 
-  def current_shop
+  def logged_shop
     @coupons = Coupon.where('shop_id = ?', current_shop.id)
 
     respond_to do |format|

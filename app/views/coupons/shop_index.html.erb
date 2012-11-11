@@ -1,0 +1,6 @@
+<div class="confirm_coupon">
+    <h1>クーポン一覧</h1>
+    <% @coupons.each do |coupon| %>
+    <%= render partial: "coupons/shop_coupon", locals: { coupon: coupon } %>
+    <% end %>
+</div>
