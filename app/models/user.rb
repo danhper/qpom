@@ -81,4 +81,28 @@ class User < ActiveRecord::Base
     user
   end
 
+  def received_coupon_number
+	123
+  end
+
+  def used_coupon_number
+	123
+  end
+
+  def shared_coupon_number
+	123
+  end
+
+  def registered_my_mise_number
+	123
+  end
+
+  def favorite_attribute
+	['abc', 'qwe', 'zcx']
+  end
+
+  def user_attribute
+	['abc', 'qwe', 'zcx']
+  end
+
 end

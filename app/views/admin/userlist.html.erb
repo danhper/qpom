@@ -15,15 +15,25 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>ユーザーA</td>
-				<td>120</td>
-				<td>18</td>
-				<td>2</td>
-				<td>14</td>
-				<td>山手線 ラーメン ボーリング</td>
-				<td>20代 男性</td>
-			</tr>
+			<% @users.each do |user| %>
+				<tr>
+					<td><%= user.name %></td>
+					<td><%= user.received_coupon_number %></td>
+					<td><%= user.used_coupon_number %></td>
+					<td><%= user.shared_coupon_number %></td>
+					<td><%= user.registered_my_mise_number %></td>
+					<td>
+						<% user.favorite_attribute.each do |attr| %>
+							<%= attr %>
+						<% end %>
+					</td>
+					<td>
+						<% user.user_attribute.each do |attr| %>
+							<%= attr %>
+						<% end %>
+					</td>
+				</tr>
+			<% end %>
 		</tbody>
 	</table>
 </div>
