@@ -92,7 +92,7 @@ class User < ActiveRecord::Base
 	123
   end
 
-  def registered_my_mise_number
+  def registered_my_shop_number
 	123
   end
 

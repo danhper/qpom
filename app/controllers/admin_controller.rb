@@ -10,7 +10,7 @@ class AdminController < ApplicationController
   end
 
   def couponlist
-	
+	  @coupons = Coupon.all	
   end
 
   def shop
