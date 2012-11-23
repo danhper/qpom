@@ -42,7 +42,7 @@ class Shop < ActiveRecord::Base
                   :name, :name_furigana, :phone_number, :representative, 
                   :account_name, :address, :business_hour, :access,
                   :open_time, :close_time, :area_id, :prefecture_id, :town_id, 
-                  :fax
+                  :fax, :description
 
 
 

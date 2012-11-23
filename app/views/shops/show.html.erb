@@ -1,0 +1,37 @@
+<div data-role="page" id="myshop" data-theme="e">
+  <%= render 'layouts/header' %>
+  <div data-role="content">
+    <div class="shop">
+      <table border="0">
+        <tr>
+          <td colspan="2" class="title"><%= @shop.name %></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="picture centering">
+            <%= image_tag 'sample_shop.jpg', width: "90%" %>
+            <img src="image/sample_shop.jpg" width="90%">
+          </td>
+        </tr>
+        <tr>
+          <td class="description"><%= @shop.description %></td>
+          <td class="information">
+            <%= "#{t('shop.phone_short')}: #{@shop.phone_number}" %>
+            <br>
+            <%= "#{t('shop.full_address')}: #{format_address(@shop)}" %>
+            <br>
+            <%= "#{t('shop.map')}:" %><span class="button red">開く</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="button_wrapper centering">
+      <div class="button red">マイ店登録を行う</div>
+    </div>
+    <div class="coupons">
+      <% @shop.coupons.take(10).each do |coupon| %>
+        <%= render coupon %>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'layouts/footer' %>
+</div>

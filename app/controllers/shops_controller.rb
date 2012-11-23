@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
   before_filter :authenticate_user!, only: [:my]
-  before_filter :authenticate_shop!, except: [:new, :create, :search, :my]
+  before_filter :authenticate_shop!, only: [:edit, :update, :destroy]
+  before_filter :signed_in, only: [:show]
   # GET /shops
   # GET /shops.json
   def index

@@ -93,7 +93,7 @@ class CouponsController < ApplicationController
   end
 
   def top
-    @coupons = Coupon.all
+    @coupons = Coupon.order('created_at DESC').limit(20)
     
     respond_to do |format|
       format.html { render 'index' }

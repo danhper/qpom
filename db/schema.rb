@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121123072650) do
+ActiveRecord::Schema.define(:version => 20121123090949) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20121123072650) do
     t.string   "fax"
     t.time     "open_time"
     t.time     "close_time"
+    t.string   "description"
   end
 
   add_index "shops", ["email"], :name => "index_shops_on_email", :unique => true

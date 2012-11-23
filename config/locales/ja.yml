@@ -19,13 +19,16 @@ ja:
     email: メールアドレス
     name: 店舗名
     representative: 代表者
+    full_address: 住所
     area: 地方
+    map: 地図
     prefecture: 住所（都道府県）
     town: 住所（市区町村）
     address: 住所（番地等）
     access: アクセス
     phone: 電話番号
     fax: FAX番号
+    phone_short: 電話
     business_hours: 営業時間
     holidays: 定休日
     url: URL
