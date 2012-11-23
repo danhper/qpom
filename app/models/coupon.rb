@@ -27,6 +27,8 @@ class Coupon < ActiveRecord::Base
 
     attr_accessor :image_file
 
+    after_initialize :init
+
 
     belongs_to :shop
 
@@ -34,9 +36,9 @@ class Coupon < ActiveRecord::Base
     has_many :users, :through => :coupon_usages
 
     def init
-        used_times ||= 0
-        shared_times ||= 0
-        distributed_times ||= 0
+        self.used_times ||= 0
+        self.shared_times ||= 0
+        self.distributed_times ||= 0
     end
 
 

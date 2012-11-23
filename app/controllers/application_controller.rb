@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_out_path_for(resource)
-        resource.is_a?(User) ? new_user_session_path : new_shop_session_path
+        (resource == :user) ? new_user_session_path : new_shop_session_path
     end
 
     def signed_in
