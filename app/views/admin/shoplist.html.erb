@@ -6,7 +6,7 @@
 		<thead>
 			<tr>
 				<th class="type-string">店舗名</th>
-				<th class="type-int">クーポン発行枚数(月)</th>
+				<th class="type-int">クーポン発行枚数</th>
 				<th class="type-int">使用された数</th>
 				<th class="type-int">シェアされた数</th>
 			</tr>
@@ -15,9 +15,9 @@
 			<% @shops.each do |shop| %>
 			<tr>
 				<td><a href="shop"><%= shop.name %></a></td>
-				<td><%= shop.created_coupon_number_in_this_month %>枚</td>
-				<td><%= shop.used_coupon_number_in_this_month %>枚</td>
-				<td><%= shop.shared_coupon_number_in_this_month %>回</td>
+				<td><%= shop.created_coupon_number %>枚</td>
+				<td><%= shop.sum_of_used_coupons_number %>枚</td>
+				<td><%= shop.sum_of_shared_coupons_number %>回</td>
 			</tr>
 		<% end %>
 		</tbody>

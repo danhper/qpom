@@ -68,16 +68,15 @@ class Shop < ActiveRecord::Base
     _station.shops << self
   end
 
-  def created_coupon_number_in_this_month
-	23
-	# Let's go Izakaya.
+  def created_coupon_number
+	coupons.length
   end
 
-  def used_coupon_number_in_this_month
-	123
+  def sum_of_used_coupons_number
+	coupons.inject(0){|sum, i| sum + i.used_times}
   end
 
-  def shared_coupon_number_in_this_month
-	777
+  def sum_of_shared_coupons_number
+	coupons.inject(0){|sum, i| sum + i.shared_coupon_number}
   end
 end

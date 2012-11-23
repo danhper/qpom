@@ -38,4 +38,8 @@ class Coupon < ActiveRecord::Base
         @shop = _shop
         _shop.coupons << self
     end
+
+	def shared_coupon_number
+		777
+	end
 end
