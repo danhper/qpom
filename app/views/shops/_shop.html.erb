@@ -5,13 +5,15 @@
           <td colspan="2" class="title"><%= shop.name %></td>
         </tr>
         <tr>
-          <td class="picture"><img src="image/sample.jpg" width="64" height="64"></td>
+          <td class="picture">
+            <%= image_tag "sample.jpg", width: 64, height: 64 %>
+          </td>
           <td class="coupons">
-              <% if @coupons.empty? %>
+              <% if shop.coupons.empty? %>
                   <%= t 'coupon.not_available' %>
               <% else %>
-                  <% @coupons.take(3).each do |coupon| %>
-                      <%= render partial: "coupon_small", object: coupon %>
+                  <% shop.coupons.take(3).each do |coupon| %>
+                      <%= render partial: "coupons/coupon_small", locals: { coupon: coupon } %>
                   <% end %>
               <% end %>
           </td>
