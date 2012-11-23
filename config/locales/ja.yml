@@ -32,7 +32,13 @@ ja:
     station: 最寄り駅
     registration: QPOM店舗登録画面
   user:
+    name: ユーザー名
     friends: 友達リスト    
+    received_coupons_number: クーポン受信数
+    used_coupons_number: 使用数
+    shared_coupons_number: シェア回数
+    stared_shops_number: マイ店登録数
+    attributes: ユーザー属性
   coupon:
     code: コード
     name: クーポン名
@@ -52,11 +58,13 @@ ja:
     target: 対象
     stop: 配信停止
     create: クーポンを発行します
-    usage: 使用回数
+    used_times: 使用回数
     confirm_use: このクーポン使いますか？
     use_now: 今すぐ使う
     share: 共有する
     users: 所有者一覧
+    distributed_times: 発行回数
+    shared_times: 共有回数
   buttons:
     search: 検索
     create: 作成

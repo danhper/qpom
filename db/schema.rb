@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121108093059) do
+ActiveRecord::Schema.define(:version => 20121118061022) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20121108093059) do
   create_table "coupon_usages", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "times_used"
   end
 
   create_table "coupons", :force => true do |t|
@@ -45,6 +46,8 @@ ActiveRecord::Schema.define(:version => 20121108093059) do
     t.integer  "max_usage"
     t.integer  "shop_id"
     t.integer  "used_times"
+    t.integer  "shared_times"
+    t.integer  "distributed_times"
   end
 
   create_table "genres", :force => true do |t|

@@ -25,12 +25,12 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable,
-    :omniauthable, :omniauth_providers => [:twitter, :facebook]
+  :recoverable, :rememberable, :trackable, :validatable,
+  :omniauthable, :omniauth_providers => [:twitter, :facebook]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-    :name, :provider, :uid
+  :name, :provider, :uid
 
   validates_presence_of :name, :on => :create
   validates_presence_of :email
@@ -64,44 +64,46 @@ class User < ActiveRecord::Base
     end
   end
 
+  def received_coupon_number
+    123
+  end
+
+  def used_coupon_number
+    123
+  end
+
+  def shared_coupon_number
+    123
+  end
+
+  def registered_my_mise_number
+    123
+  end
+
+  def favorite_attribute
+    ['abc', 'qwe', 'zcx']
+  end
+
+  def user_attribute
+    ['abc', 'qwe', 'zcx']
+  end
+
+
   private
 
   def self.get_or_create_user(auth, signed_in_resource=nil, name)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
       user = User.create(name: name,
-                         provider: auth.provider,
-                         uid: auth.uid,
-                         email: auth.info.email,
-                         password: Devise.friendly_token[0, 20]
-                        )
+       provider: auth.provider,
+       uid: auth.uid,
+       email: auth.info.email,
+       password: Devise.friendly_token[0, 20]
+       )
       user.save! if user.email?
     end
     user
   end
 
-  def received_coupon_number
-	123
-  end
-
-  def used_coupon_number
-	123
-  end
-
-  def shared_coupon_number
-	123
-  end
-
-  def registered_my_mise_number
-	123
-  end
-
-  def favorite_attribute
-	['abc', 'qwe', 'zcx']
-  end
-
-  def user_attribute
-	['abc', 'qwe', 'zcx']
-  end
 
 end

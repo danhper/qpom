@@ -5,21 +5,20 @@
 	<table>
 		<thead>
 			<tr>
-				<th class="type-string">クーポン名</th>
-				<th class="type-string">発行店</th>
-				<th class="type-int">発行数</th>
-				<th class="type-int">使用数</th>
-				<th class="type-int">シェア回数</th>
+				<th class="type-string"><%= t 'coupon.name' %></th>
+				<th class="type-string"><%= t 'coupon.shop.name' %></th>
+				<th class="type-int"><%= t 'coupon.distributed_times' %></th>
+				<th class="type-int"><%= t 'coupon.used_times' %></th>
+				<th class="type-int"><%= t 'coupon.shared_times' %></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>倒産</td>
-				<td>株式会社エーテル</td>
-				<td>1枚</td>
-				<td>1回</td>
-				<td>1回</td>
-			</tr>
+				<td><%= coupon.name %></td>
+				<td><%= coupon.shop.name %></td>
+				<td><%= coupon.distributed_times %></td>
+				<td><%= coupon.used_times %></td>
+				<td><%= coupon.shared_times %></td>
 		</tbody>
 	</table>
 </div>

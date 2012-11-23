@@ -1,6 +1,12 @@
 <ul>
 	<% action = controller.action_name %>
-	<a href="shoplist"><li class="<%= action == 'shoplist' ? 'active' : ''%>">店舗一覧</li></a>
-	<a href="userlist"><li class="<%= action == 'userlist' ? 'active' : ''%>">ユーザー一覧</li></a>
-	<a href="couponlist"><li class="<%= action == 'couponlist' ? 'active' : ''%>">クーポン一覧</li></a>
+    <%= link_to(admin_shoplist_path) do %>
+      <li class="<%= action == 'shoplist' ? 'active' : ''%>">店舗一覧</li>
+    <% end %>
+    <%= link_to(admin_userlist_path) do %>
+	  <li class="<%= action == 'userlist' ? 'active' : ''%>">ユーザー一覧</li>
+    <% end %>
+    <%= link_to(admin_couponlist_path) do %>
+	  <li class="<%= action == 'couponlist' ? 'active' : ''%>">クーポン一覧</li></a>
+    <% end %>
 </ul>

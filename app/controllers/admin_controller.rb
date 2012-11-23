@@ -2,11 +2,11 @@ class AdminController < ApplicationController
   layout 'admin'
 
   def userlist
-	@users = User.all
+   @users = User.all
   end
 
   def shoplist
-	@shops = Shop.all
+   @shops = Shop.all
   end
 
   def couponlist
