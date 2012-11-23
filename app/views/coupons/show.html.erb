@@ -1,10 +1,8 @@
 <div data-role="page" id="main" data-add-back-btn="false" data-theme="e">
-	<div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="c"> 
-		<a href="main.html" data-icon="home" data-transition="slide" data-direction="reverse"><%= t 'general.home' %></a>
-		<div id="header_logo"> <img src="/assets/logo.png" alt="main logo" width="70" height="28"></div>
-		<a href="#" data-icon="check"><%= t 'general.menu' %></a> 
-	</div>
+	<%= render 'layouts/header' %>
+
 	<div class="ui-bar ui-bar-a">クーポン使用確認</div>
+
 	<div data-role="content">
 		<div class="share">
 			<div class="description centering">
@@ -16,11 +14,12 @@
 			<div class="coupon big red">
 				<div class="title"><%= @coupon.name %></div>
 				<div class="text"><%= @coupon.shop.name %></div>
-
 				<div class="picture centering">
-					<%= cl_image_tag(@coupon.image) %>
+					<%= cl_image_tag(@coupon.image, height: 150, width: 150, crop: :scale) %>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<%= render 'layouts/footer' %>
 </div>

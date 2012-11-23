@@ -7,7 +7,7 @@
 
     <div data-role="content">
         <% @coupons.take(10).each do |coupon| %>
-            <%= render partial: "coupons/coupon", object: coupon %>
+            <%= render coupon %>
         <% end %>
     </div>
     

@@ -13,13 +13,15 @@
 			</tr>
 		</thead>
 		<tbody>
+			<% @coupons.each do |coupon| %>
 			<tr>
 				<td><%= coupon.name %></td>
 				<td><%= coupon.shop.name %></td>
 				<td><%= coupon.distributed_times %></td>
 				<td><%= coupon.used_times %></td>
 				<td><%= coupon.shared_times %></td>
+			</tr>
+			<% end %>
 		</tbody>
 	</table>
 </div>
-

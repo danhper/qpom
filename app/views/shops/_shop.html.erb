@@ -1,0 +1,21 @@
+<%= link_to shops_path(shop) do %>
+    <div class="shop">
+      <table border="0">
+        <tr>
+          <td colspan="2" class="title"><%= shop.name %></td>
+        </tr>
+        <tr>
+          <td class="picture"><img src="image/sample.jpg" width="64" height="64"></td>
+          <td class="coupons">
+              <% if @coupons.empty? %>
+                  <%= t 'coupon.not_available' %>
+              <% else %>
+                  <% @coupons.take(3).each do |coupon| %>
+                      <%= render partial: "coupon_small", object: coupon %>
+                  <% end %>
+              <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+<% end %>

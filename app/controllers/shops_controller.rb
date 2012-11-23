@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
-  before_filter :authenticate_shop!, except: [:new, :create, :search]
+  before_filter :authenticate_user!, only: [:my]
+  before_filter :authenticate_shop!, except: [:new, :create, :search, :my]
   # GET /shops
   # GET /shops.json
   def index
@@ -86,7 +87,7 @@ class ShopsController < ApplicationController
   def my
     @shops = Shop.all
     respond_to do |format|
-      format.html { render template: 'shops/index'}
+      format.html { render template: 'shops/my_shops'}
       format.json { render json: @shops }
     end
   end
