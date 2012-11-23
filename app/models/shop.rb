@@ -28,6 +28,7 @@
 #  fax                    :string(255)
 #  open_time              :time
 #  close_time             :time
+#  description            :string(255)
 #
 
 class Shop < ActiveRecord::Base

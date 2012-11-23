@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_filter :authenticate_user!, only: [:my]
+  before_filter :authenticate_user!, only: [:my, :add_to_my, :remove_from_my]
   before_filter :authenticate_shop!, only: [:edit, :update, :destroy]
   before_filter :signed_in, only: [:show]
   # GET /shops
@@ -110,4 +110,22 @@ class ShopsController < ApplicationController
     end
   end
 
+  # POST /shops/1/add_to_my
+  def add_to_my
+    shop = Shop.find(params[:id])
+    unless shop.nil? || current_user.shops.include?(shop)
+      current_user.shops << shop
+    end
+    render json: {}
+  end
+
+  # POST /shops/1/remove_from_my
+  def remove_from_my
+    shop = Shop.find(params[:id])
+    unless shop.nil? || !current_user.shops.include?(shop)
+      current_user.shops.delete(shop)
+      current_user.save
+    end
+    render json: {}
+  end
 end

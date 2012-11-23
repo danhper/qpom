@@ -97,6 +97,8 @@ GEM
       thor (~> 0.14)
     jquery_mobile_rails (1.1.1)
       rails (>= 3.1.0)
+    js-routes (0.8.4)
+      rails (>= 3.2)
     json (1.7.5)
     jwt (0.1.5)
       multi_json (>= 1.0)
@@ -242,6 +244,7 @@ DEPENDENCIES
   guard-spork (= 0.3.2)
   jquery-rails (= 2.0.2)
   jquery_mobile_rails (= 1.1.1)
+  js-routes
   libnotify (= 0.5.9)
   oauth2
   omniauth

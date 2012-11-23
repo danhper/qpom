@@ -31,6 +31,10 @@ QpomPretest::Application.routes.draw do
       get 'search'
       get 'find'
     end
+    member do
+      post 'add_to_my'
+      post 'remove_from_my'
+    end
     resources :coupons do
       member do
         post 'use'

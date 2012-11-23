@@ -34,6 +34,7 @@ ja:
     url: URL
     station: 最寄り駅
     registration: QPOM店舗登録画面
+    add_to_my: マイ店登録を行う
   user:
     name: ユーザー名
     friends: 友達リスト    

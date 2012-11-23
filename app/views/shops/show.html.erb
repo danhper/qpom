@@ -25,7 +25,9 @@
       </table>
     </div>
     <div class="button_wrapper centering">
-      <div class="button red">マイ店登録を行う</div>
+      <div id="register" class="button red">
+        <%= t 'shop.add_to_my' %>
+      </div>
     </div>
     <div class="coupons">
       <% @shop.coupons.take(10).each do |coupon| %>
@@ -34,4 +36,10 @@
     </div>
   </div>
   <%= render 'layouts/footer' %>
+  <script>
+    $(function() {
+      var shop = new Qpom.Models.Shop(<%= @shop.to_json.to_s.html_safe %>);
+      new Qpom.Views.ShowShopView({ 'model': shop });
+    });
+  </script>
 </div>
