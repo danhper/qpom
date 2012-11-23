@@ -51,10 +51,11 @@ group :assets do
 
   gem 'zurb-foundation', '~> 3.0.9'
   gem 'rails-backbone'
-  gem 'underscore-rails'
 end
 
 gem 'compass-rails', '~> 1.0.3'
+gem 'underscore-rails'
+
 
 gem 'jquery-rails', '2.0.2'
 gem 'jquery_mobile_rails', '1.1.1'
