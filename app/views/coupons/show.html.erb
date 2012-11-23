@@ -13,7 +13,7 @@
 			</div>
 			<div class="coupon big red">
 				<div class="title"><%= @coupon.name %></div>
-				<div class="text"><%= @coupon.shop.name %></div>
+				<div class="text"><%= link_to @coupon.shop.name, shop_path(@coupon.shop) %></div>
 				<div class="picture centering">
 					<%= cl_image_tag(@coupon.image, height: 150, width: 150, crop: :scale) %>
 				</div>

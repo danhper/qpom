@@ -49,6 +49,8 @@ class Shop < ActiveRecord::Base
   has_one :shop_settings, dependent: :destroy 
   has_one :genre
 
+  has_and_belongs_to_many :users
+
   has_many :coupons, dependent: :destroy
 
   belongs_to :station
