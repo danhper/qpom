@@ -6,7 +6,7 @@
 		<thead>
 			<tr>
 				<th class="type-string"><%= t 'user.name' %></th>
-				<th class="type-int"><%= t 'coupon.received_coupons_number' %></th>
+				<th class="type-int"><%= t 'received_coupons_number' %></th>
 				<th class="type-int"><%= t 'user.used_coupons_number' %></th>
 				<th class="type-int"><%= t 'user.shared_coupons_number' %></th>
 				<th class="type-int"><%= t 'user.stared_shops_number' %></th>
@@ -19,9 +19,9 @@
 				<tr>
 					<td><%= user.name %></td>
 					<td><%= user.received_coupon_number %></td>
-					<td><%= user.used_coupon_number %></td>
+					<td><%= user.coupons.used_coupon_number %></td>
 					<td><%= user.shared_coupon_number %></td>
-					<td><%= user.registered_my_mise_number %></td>
+					<td><%= user.registered_my_shop_number %></td>
 					<td>
 						<% user.favorite_attribute.each do |attr| %>
 							<%= attr %>

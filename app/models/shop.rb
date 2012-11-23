@@ -69,14 +69,14 @@ class Shop < ActiveRecord::Base
   end
 
   def created_coupon_number
-	coupons.length
+    coupons.length
   end
 
   def sum_of_used_coupons_number
-	coupons.inject(0){|sum, i| sum + i.used_times}
+    coupons.inject(0){|sum, i| sum + i.used_times}
   end
 
   def sum_of_shared_coupons_number
-	coupons.inject(0){|sum, i| sum + i.shared_coupon_number}
+    coupons.inject(0){|sum, i| sum + i.shared_coupon_number}
   end
 end

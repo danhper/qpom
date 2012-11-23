@@ -39,7 +39,15 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :shops
 
   has_many :coupon_usages
-  has_many :coupons, :through => :coupon_usages
+  has_many :coupons, :through => :coupon_usages do
+    def used_coupon_number
+      where("coupon_usages.times_used > ? ", 0).length
+    end
+    def times_used(coupon)
+      usage = where("coupon_usages.id = ?", coupon.id)
+      usage.times_used
+    end
+  end
 
   has_one :user_settings
 
@@ -65,11 +73,7 @@ class User < ActiveRecord::Base
   end
 
   def received_coupon_number
-    123
-  end
-
-  def used_coupon_number
-    123
+    coupon_usages.length
   end
 
   def shared_coupon_number
@@ -88,6 +92,7 @@ class User < ActiveRecord::Base
     ['abc', 'qwe', 'zcx']
   end
 
+  
 
   private
 

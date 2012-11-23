@@ -6,6 +6,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  times_used :integer
+#  user_id    :integer
+#  coupon_id  :integer
 #
 
 require 'spec_helper'

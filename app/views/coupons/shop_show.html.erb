@@ -7,17 +7,17 @@
   <h1><%= t 'coupon.description_long' %></h1>
 <table width="80%" border="0">
   <tr>
-    <td><%= cl_image_tag @coupon.image %></td>
+    <td><%= cl_image_tag @coupon.image, width: 150, height: 150, crop: :scale %></td>
     <td class="coupon_details">
         <%= t('coupon.name') + ':' + @coupon.name %> <br />
         <%= t('coupon.description') + ':' + @coupon.description %> <br />
         <%= t('coupon.validity') + ':' + validity_time(@coupon) %> <br />
-        <%= t('coupon.target') + ':' + coupon.target unless coupon.target.nil? %>
-    <span class="button big"><%= coupon.stop %></span></td>
+        <%= t('coupon.target') + ':' + @coupon.target unless @coupon.target.nil? %>
+    <span class="button big"><%= t 'coupon.stop' %></span></td>
   </tr>
 </table>
 <table class="userlist">
-  <caption><%= coupon.users %></caption>
+  <caption><%= t 'coupon.users' %></caption>
   <tr>
     <th scope="col">&nbsp;</th>
     <th scope="col">ID</th>

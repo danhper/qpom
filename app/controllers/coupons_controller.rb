@@ -9,16 +9,7 @@ class CouponsController < ApplicationController
     @coupons = Coupon.where('shop_id = ?', params[:shop_id])
 
     respond_to do |format|
-      format.html do
-        if user_signed_in?
-          render 'index'
-        elsif shop_signed_in?
-          is_current_shop(Shop.find(params[:shop_id]))
-          render 'shop_index'
-        else
-          redirect_to root_path
-        end
-      end
+      format.html { show_from_resource('index', 'shop_index') }
       format.json { render json: @coupons }
     end
   end
@@ -29,7 +20,7 @@ class CouponsController < ApplicationController
     @coupon = Coupon.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { show_from_resource('show', 'shop_show')}
       format.json { render json: @coupon }
     end
   end

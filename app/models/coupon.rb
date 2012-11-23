@@ -33,6 +33,12 @@ class Coupon < ActiveRecord::Base
     has_many :coupon_usages
     has_many :users, :through => :coupon_usages
 
+    def init
+        used_times ||= 0
+        shared_times ||= 0
+        distributed_times ||= 0
+    end
+
 
     def shop=(_shop)
         @shop = _shop
