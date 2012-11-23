@@ -48,13 +48,13 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '1.2.3'
-
-  gem 'zurb-foundation', '~> 3.0.9'
-  gem 'rails-backbone'
 end
 
+# bugs on heroku in assets group ><
 gem 'compass-rails', '~> 1.0.3'
 gem 'underscore-rails'
+gem 'rails-backbone'
+
 
 
 gem 'jquery-rails', '2.0.2'
