@@ -86,7 +86,7 @@ class ShopsController < ApplicationController
 
   # GET shops/my
   def my
-    @shops = Shop.all
+    @shops = current_user.shops
     respond_to do |format|
       format.html { render template: 'shops/my_shops'}
       format.json { render json: @shops }
