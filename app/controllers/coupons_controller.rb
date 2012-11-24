@@ -136,7 +136,15 @@ class CouponsController < ApplicationController
 
   # POST /coupons/use/1
   def use
-    @coupon = Coupon.find(params[:id])
-    @user = current_user
+    coupon = Coupon.find(params[:id])
+    user = current_user
+    if not user.has?(coupon)
+      user.coupon_usages.build(coupon_id: coupon.id)
+    end
+    if user.coupons.use(coupon)
+      redirect_to root_path # TODO redirect to page to show coupon
+    else
+      redirect_to [coupon.shop, coupon], notice: 'You cannot use this coupon anymore.'
+    end
   end
 end

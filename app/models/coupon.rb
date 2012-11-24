@@ -21,33 +21,33 @@
 #
 
 class Coupon < ActiveRecord::Base
-    attr_accessible :code, :description, :image, :name, :sharable,
-        :validity_end_datetime, :validity_start_datetime,
-        :target, :max_usage, :image_file, :used_times
+  attr_accessible :code, :description, :image, :name, :sharable,
+                  :validity_end_datetime, :validity_start_datetime,
+                  :target, :max_usage, :image_file, :used_times
 
-    attr_accessor :image_file
+  attr_accessor :image_file
 
-    after_initialize :init
-
-
-    belongs_to :shop
-
-    has_many :coupon_usages
-    has_many :users, :through => :coupon_usages
-
-    def init
-        self.used_times ||= 0
-        self.shared_times ||= 0
-        self.distributed_times ||= 0
-    end
+  after_initialize :init
 
 
-    def shop=(_shop)
-        @shop = _shop
-        _shop.coupons << self
-    end
+  belongs_to :shop
 
-	def shared_coupon_number
-		777
-	end
+  has_many :coupon_usages, dependent: :destroy
+  has_many :users, through: :coupon_usages
+
+  def init
+    self.used_times ||= 0
+    self.shared_times ||= 0
+    self.distributed_times ||= 0
+  end
+
+
+  def shop=(_shop)
+    @shop = _shop
+    _shop.coupons << self
+  end
+
+  def shared_coupon_number
+    777
+  end
 end

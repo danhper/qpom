@@ -1,27 +1,27 @@
 <div id="left-pane">
-	<%= render 'shared/admin_menu' %>
+  <%= render 'shared/admin_menu' %>
 </div>
 <div id="right-pane" class="clearfix">
-	<table>
-		<thead>
-			<tr>
-				<th class="type-string"><%= t 'coupon.name' %></th>
-				<th class="type-string"><%= t 'coupon.shop.name' %></th>
-				<th class="type-int"><%= t 'coupon.distributed_times' %></th>
-				<th class="type-int"><%= t 'coupon.used_times' %></th>
-				<th class="type-int"><%= t 'coupon.shared_times' %></th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @coupons.each do |coupon| %>
-			<tr>
-				<td><%= coupon.name %></td>
-				<td><%= coupon.shop.name %></td>
-				<td><%= coupon.distributed_times %></td>
-				<td><%= coupon.used_times %></td>
-				<td><%= coupon.shared_times %></td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
+  <table>
+    <thead>
+      <tr>
+        <th class="type-string"><%= t 'coupon.name' %></th>
+        <th class="type-string"><%= t 'shop.name' %></th>
+        <th class="type-int"><%= t 'coupon.distributed_times' %></th>
+        <th class="type-int"><%= t 'coupon.used_times' %></th>
+        <th class="type-int"><%= t 'coupon.shared_times' %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @coupons.each do |coupon| %>
+      <tr>
+        <td><%= coupon.name %></td>
+        <td><%= coupon.shop.name %></td>
+        <td><%= coupon.distributed_times %></td>
+        <td><%= coupon.used_times %></td>
+        <td><%= coupon.shared_times %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

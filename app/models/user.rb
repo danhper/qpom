@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :shops
 
-  has_many :coupon_usages
+  has_many :coupon_usages, dependent: :destroy
   has_many :coupons, :through => :coupon_usages do
     def used_coupon_number
       where("coupon_usages.times_used > ? ", 0).length
@@ -46,6 +46,15 @@ class User < ActiveRecord::Base
     def times_used(coupon)
       usage = where("coupon_usages.id = ?", coupon.id)
       usage.times_used
+    end
+    def use(coupon)
+      usage = where("coupon_usage.id = ?", coupon.id)
+      if usage.times_used < coupon.max_usage
+        usage.times_used++
+        usage.save
+      else
+        false
+      end
     end
   end
 
@@ -92,7 +101,17 @@ class User < ActiveRecord::Base
     ['abc', 'qwe', 'zcx']
   end
 
-  
+  def has?(coupon)
+    coupon_usages.find_by_coupon_id(coupon.id)
+  end
+
+  def get!(coupon)
+    coupon_usages.create!(coupon_id: coupon.id)
+  end
+
+  def drop!(coupon)
+    coupon_usages.find_by_coupon_id(couopn.id).destroy
+  end
 
   private
 
