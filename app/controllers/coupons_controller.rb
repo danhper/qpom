@@ -3,8 +3,8 @@ class CouponsController < ApplicationController
   before_filter :authenticate_shop!, only: [:new, :edit, :update, :delete, :logged_shop]
   before_filter :signed_in, only: [:index, :show]
 
-  # GET /coupons
-  # GET /coupons.json
+  # GET /shops/1/coupons
+  # GET /shops/1/coupons.json
   def index
     @coupons = Coupon.where('shop_id = ?', params[:shop_id])
 
@@ -14,8 +14,8 @@ class CouponsController < ApplicationController
     end
   end
 
-  # GET /coupons/1
-  # GET /coupons/1.json
+  # GET /shops/1/coupons/1
+  # GET /shops/1/coupons/1.json
   def show
     @coupon = Coupon.find(params[:id])
 
@@ -25,8 +25,8 @@ class CouponsController < ApplicationController
     end
   end
 
-  # GET /coupons/new
-  # GET /coupons/new.json
+  # GET /shops/1/coupons/new
+  # GET /shops/1/coupons/new.json
   def new
     @coupon = Coupon.new
 
@@ -36,13 +36,13 @@ class CouponsController < ApplicationController
     end
   end
 
-  # GET /coupons/1/edit
+  # GET /shops/1/coupons/1/edit
   def edit
     @coupon = Coupon.find(params[:id])
   end
 
-  # POST /coupons
-  # POST /coupons.json
+  # POST /shops/1/coupons
+  # POST /shops/1/coupons.json
   def create
     @coupon = Coupon.new(params[:coupon]) 
     @coupon.shop = current_shop  # fix to @coupon = current_shop.coupons.build(params[:coupon])
@@ -59,8 +59,8 @@ class CouponsController < ApplicationController
     end
   end
 
-  # PUT /coupons/1
-  # PUT /coupons/1.json
+  # PUT /shops/1/coupons/1
+  # PUT /shops/1/coupons/1.json
   def update
     @coupon = Coupon.find(params[:id])
 
@@ -80,8 +80,8 @@ class CouponsController < ApplicationController
     end
   end
 
-  # DELETE /coupons/1
-  # DELETE /coupons/1.json
+  # DELETE /shops/1/coupons/1
+  # DELETE /shops/1/coupons/1.json
   def destroy
     @coupon = Coupon.find(params[:id])
     @coupon.destroy
@@ -92,6 +92,7 @@ class CouponsController < ApplicationController
     end
   end
 
+  # GET /
   def top
     @coupons = Coupon.order('created_at DESC').limit(20)
     
@@ -101,6 +102,7 @@ class CouponsController < ApplicationController
     end
   end
 
+  # GET /shops/1/coupons/show_new
   def show_new
     @new_coupons = Coupon.all
 
@@ -110,12 +112,14 @@ class CouponsController < ApplicationController
     end
   end
 
+  # POST /shops/1/coupons/1/share
   def share
     respond_to do |format|
       format.html # share.html.erb
     end
   end
 
+  # GET /coupons/ranking
   def ranking
     @coupons = Coupon.all
 
@@ -125,16 +129,7 @@ class CouponsController < ApplicationController
     end
   end
 
-  def logged_shop
-    @coupons = Coupon.where('shop_id = ?', current_shop.id)
-
-    respond_to do |format|
-      format.html { render :index }
-      format.json { render json: @coupons }
-    end
-  end
-
-  # POST /coupons/use/1
+  # POST /shops/1/coupons/1/use
   def use
     coupon = Coupon.find(params[:id])
     user = current_user
@@ -145,6 +140,16 @@ class CouponsController < ApplicationController
       redirect_to root_path # TODO redirect to page to show coupon
     else
       redirect_to [coupon.shop, coupon], notice: 'You cannot use this coupon anymore.'
+    end
+  end
+
+  private
+  def logged_shop
+    @coupons = Coupon.where('shop_id = ?', current_shop.id)
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @coupons }
     end
   end
 end

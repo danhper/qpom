@@ -90,7 +90,7 @@ class User < ActiveRecord::Base
   end
 
   def registered_my_shop_number
-    123
+    shops.length
   end
 
   def favorite_attribute
@@ -128,6 +128,4 @@ class User < ActiveRecord::Base
     end
     user
   end
-
-
 end
