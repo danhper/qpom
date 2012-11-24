@@ -14,4 +14,7 @@ class CouponUsage < ActiveRecord::Base
   attr_accessible :times_used, :coupon_id
   belongs_to :coupon
   belongs_to :user
+
+  validates :coupon_id, presence: true
+  validates :user_id, presence: true
 end
