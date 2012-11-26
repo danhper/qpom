@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
         (resource == :user) ? new_user_session_path : new_shop_session_path
     end
 
-    def signed_in
+    def signed_in!
         redirect_to new_user_session unless user_signed_in? || shop_signed_in?
     end
 

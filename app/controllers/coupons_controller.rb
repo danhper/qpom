@@ -1,7 +1,7 @@
 class CouponsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show, :new, :create, :edit, :update, :delete, :logged_shop]
   before_filter :authenticate_shop!, only: [:new, :edit, :update, :delete, :logged_shop]
-  before_filter :signed_in, only: [:index, :show]
+  before_filter :signed_in!, only: [:index, :show]
 
   # GET /shops/1/coupons
   # GET /shops/1/coupons.json
