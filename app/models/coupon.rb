@@ -48,6 +48,6 @@ class Coupon < ActiveRecord::Base
   end
 
   def shared_coupon_number
-    777
+    0
   end
 end

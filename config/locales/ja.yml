@@ -69,12 +69,14 @@ ja:
     users: 所有者一覧
     distributed_times: 発行回数
     shared_times: 共有回数
+    my: マイクーポン一覧
   buttons:
     search: 検索
     create: 作成
     edit: 編集
     delete: 削除
     login: ログイン
+    logout: ログアウト
     registration: 登録
   search:
     place: 場所

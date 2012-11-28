@@ -143,6 +143,10 @@ class CouponsController < ApplicationController
     end
   end
 
+  def my
+    @coupons = current_user.coupons
+  end
+
   private
   def logged_shop
     @coupons = Coupon.where('shop_id = ?', current_shop.id)

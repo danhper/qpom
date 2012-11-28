@@ -3,5 +3,13 @@
     <div id="header_logo">
         <%= image_tag "logo.png", alt: "main logo", width: 70, height: 28 %>
     </div>
-    <%= link_to t('general.menu'), "#", class: "ui-btn-right", "data-icon" => "check" %>
+    <%= link_to t('general.menu'), "#", id: "menu-button", class: "ui-btn-right", "data-icon" => "check" %>
+    <ul id="top-menu" style="display: none;">
+      <li>
+        <%= link_to t('shop.my'), my_shops_path, "data-icon" => "delete" %>
+      </li>
+      <li>
+        <%= link_to t('buttons.logout'), destroy_user_session_path %>
+      </li>
+    </ul>
 </div>

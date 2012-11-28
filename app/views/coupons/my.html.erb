@@ -1,0 +1,15 @@
+<div data-role="page" id="main" data-add-back-btn="false" data-theme="e">
+    <%= render 'layouts/header' %>
+
+    <div class="ui-bar ui-bar-a">
+        <%= t 'coupon.my' %>
+    </div>
+
+    <div data-role="content">
+        <% @coupons.take(10).each do |coupon| %>
+            <%= render coupon %>
+        <% end %>
+    </div>
+    
+    <%= render 'layouts/footer' %>
+</div>

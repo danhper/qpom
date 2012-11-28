@@ -14,12 +14,34 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def after_sign_up_path_for(resource)
+        if resorce.is_a?(User)
+            root_path
+        elsif resource.is_a?(Shop)
+            shop_coupons_path(resource)
+        else
+            admin_userlist_path
+        end
+    end
+
     def after_sign_in_path_for(resource)
-        resource.is_a?(User) ? root_path : shop_coupons_path(resource)
+        if resource.is_a?(User)
+            root_path
+        elsif resource.is_a?(Shop)
+            shop_coupons_path(resource)
+        else
+            admin_userlist_path
+        end
     end
 
     def after_sign_out_path_for(resource)
-        (resource == :user) ? new_user_session_path : new_shop_session_path
+        if resource == :user
+            new_user_session_path
+        elsif resource == :shop
+            new_shop_session_path
+        else
+            new_admin_session_path
+        end
     end
 
     def signed_in!

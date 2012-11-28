@@ -1,5 +1,16 @@
 QpomPretest::Application.routes.draw do
 
+  devise_for :admins, controllers: { 
+    sessions: "admins/sessions", 
+    registrations: "admins/registrations"
+  }, path_names: {
+    sign_in: 'login',
+    sign_up: 'register'
+  } do 
+    get "/admins/logout" => "admins/sessions#destroy", :as => :destroy_admin_session
+  end
+
+
   get "admin/userlist"
 
   get "admin/shoplist"
@@ -23,7 +34,7 @@ QpomPretest::Application.routes.draw do
 
   match 'coupons/ranking' => 'coupons#ranking'
 
-  match 'coupons/my' => 'coupons#current_shop'
+  match 'coupons/my' => 'coupons#my'
 
   resources :shops do
     collection do
