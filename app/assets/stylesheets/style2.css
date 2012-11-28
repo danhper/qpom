@@ -35,6 +35,16 @@
 #header_logo * {
 	margin:5px auto 0;
 }
+#top-menu {
+	position:absolute;
+	right:0px;
+	top:37px;
+	line-height:30px;
+	background:#eee;
+	padding:10px 10px 10px 20px;
+}
+
+
 .centering {
 	margin:0 auto;
 	text-align:center;
