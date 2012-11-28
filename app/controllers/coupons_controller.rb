@@ -129,6 +129,14 @@ class CouponsController < ApplicationController
     end
   end
 
+  def get
+    coupon = Coupon.find(params[:id])
+    if not user.has?(coupon)
+      user.coupon_usages.build(coupon_id: coupon.id)
+    end
+    redirect_to [coupon.shop, coupon]
+  end
+
   # POST /shops/1/coupons/1/use
   def use
     coupon = Coupon.find(params[:id])

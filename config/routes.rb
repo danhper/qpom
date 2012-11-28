@@ -49,6 +49,7 @@ QpomPretest::Application.routes.draw do
     resources :coupons do
       member do
         post 'use'
+        post 'get'
       end
       collection do
         get 'show_new'
