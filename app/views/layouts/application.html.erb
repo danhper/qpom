@@ -18,6 +18,10 @@
         <%= yield %>
     </body>
     <script>
-      new Qpom.Views.AppView();
+    $(function() {
+        $("body").live('click', function() {
+            $("#top-menu").toggle();
+        }, '#menu-button');
+    });
     </script>
 </html>
