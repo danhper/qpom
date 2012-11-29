@@ -1,6 +1,7 @@
 class CouponsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show, :new, :create, :edit, :update, :delete, :logged_shop]
-  before_filter :authenticate_shop!, only: [:new, :edit, :update, :delete, :logged_shop]
+  before_filter :authenticate_user!, except: [:index, :show, :new, :create, :edit, :update, :destroy, :logged_shop]
+  before_filter :authenticate_shop!, only: [:new, :edit, :update, :destroy, :logged_shop]
+  before_filter(only: [:edit, :update, :destroy]) { |c| c.send(:is_current_shop!, params[:shop_id]) }
   before_filter :signed_in!, only: [:index, :show]
 
   # GET /shops/1/coupons
@@ -155,7 +156,6 @@ class CouponsController < ApplicationController
     @coupons = current_user.coupons
   end
 
-  private
   def logged_shop
     @coupons = Coupon.where('shop_id = ?', current_shop.id)
 

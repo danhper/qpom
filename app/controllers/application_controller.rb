@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
             render user_template
         elsif shop_signed_in?
             unless params[:shop_id].nil?
-                is_current_shop(Shop.find(params[:shop_id]))
+                is_current_shop!(Shop.find(params[:shop_id]))
             end
             render shop_template
         else
@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
         redirect_to new_user_session unless user_signed_in? || shop_signed_in?
     end
 
-    def is_current_shop(shop)
+    def is_current_shop!(shop)
         if shop_signed_in?
             redirect_to shop_coupons_path(shop) unless shop == current_shop
         else

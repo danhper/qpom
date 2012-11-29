@@ -4,8 +4,11 @@
 <% end %>
 <div class="confirm_coupon">
     <h1><%= t 'coupon.all' %></h1>
+    <table width="80%" border="0">
     <% @coupons.each do |coupon| %>
     <%= render partial: "coupons/shop_coupon", locals: { coupon: coupon } %>
     <% end %>
-      <a href="<%= new_shop_coupon_path %>"><%= t 'coupon.create' %></a>
+    </table>
+    <br>
+    <a href="<%= new_shop_coupon_path %>"><%= t 'coupon.create' %></a>
 </div>

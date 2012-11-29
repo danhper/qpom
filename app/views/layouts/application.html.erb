@@ -11,17 +11,15 @@
             <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
             <%= stylesheet_link_tag "application", media: "all" %>
             <%= javascript_include_tag "application" %>
-            <%= csrf_meta_tags %>
+            <script>
+            $(function() {
+                new Qpom.Views.AppView();
+            });
+            </script>
         <% end %>
+        <%= csrf_meta_tags %>
     </head>
     <body>
         <%= yield %>
     </body>
-    <script>
-    $(function() {
-        $("body").live('click', function() {
-            $("#top-menu").toggle();
-        }, '#menu-button');
-    });
-    </script>
 </html>
