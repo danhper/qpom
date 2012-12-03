@@ -25,6 +25,11 @@
     </div>
     <br>
     <div class="field">
+        <%= f.label :max_usage, t('max_usage_times') %>
+        <%= f.text_field :max_usage %>
+    </div>
+    <br>
+    <div class="field">
         <%= f.label :image_file, t('coupon.image_file') %>
         <%= f.file_field :image_file %>
     </div>

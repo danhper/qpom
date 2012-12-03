@@ -1,15 +1,24 @@
 <div data-role="page" id="main" data-add-back-btn="false" data-theme="e">
 	<%= render 'layouts/header' %>
 
-	<div class="ui-bar ui-bar-a">クーポン使用確認</div>
+	<div class="ui-bar ui-bar-a"><%= t 'coupon.confirmation' %></div>
 
 	<div data-role="content">
 		<div class="share">
 			<div class="description centering">
 				<p><%= t 'coupon.confirm_use' %>
 				</p>
-				<div class="button red"><%= t 'coupon.use_now' %></div>
-				<div class="button red"><%= t 'coupon.register' %></div>
+				<div class="button red">
+					<%= link_to t('coupon.use_now'),
+					       use_shop_coupon_path(@coupon.shop, @coupon), 
+					       method: :post,
+					       confirm: t('coupon.confirm_use') %>
+				</div>
+				<div class="button red">
+					<%= link_to t('coupon.register'),
+					       get_shop_coupon_path(@coupon.shop, @coupon),
+					       method: :post %>
+				</div>
 			</div>
 			<div class="coupon big red">
 				<div class="title"><%= @coupon.name %></div>

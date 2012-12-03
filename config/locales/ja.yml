@@ -52,6 +52,7 @@ ja:
     coupon: クーポン
     new: 新着クーポン
     recommended: おすすめクーポン
+    confirmation: クーポン使用確認
     create: クーポンを作成する
     edit: クーポンを編集する
     valid_until: "%{date}まで有効"
@@ -63,6 +64,7 @@ ja:
     stop: 配信停止
     create: クーポンを発行します
     used_times: 使用回数
+    max_usage_times: 最大使用回数
     confirm_use: このクーポン使いますか？
     use_now: 今すぐ使う
     share: 共有する

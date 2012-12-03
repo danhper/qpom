@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.mobile
+//= require jquery_mobile
 //= require backbone/qpom_pretest
 //= require js-routes

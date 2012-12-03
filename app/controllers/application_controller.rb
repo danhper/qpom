@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
     end
 
     def signed_in!
-        redirect_to new_user_session unless user_signed_in? || shop_signed_in?
+        redirect_to new_user_session_path unless user_signed_in? || shop_signed_in?
     end
 
     def is_current_shop!(shop)

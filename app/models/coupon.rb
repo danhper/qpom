@@ -39,12 +39,18 @@ class Coupon < ActiveRecord::Base
     self.used_times ||= 0
     self.shared_times ||= 0
     self.distributed_times ||= 0
+    self.max_usage ||= 1
   end
 
 
   def shop=(_shop)
     @shop = _shop
     _shop.coupons << self
+  end
+
+  def self.top(limit=20)
+    coupons = Coupon.where('validity_end_time >= ?', Time.now)
+    coupons.order('created_at DESC').limit(limit)
   end
 
   def shared_coupon_number

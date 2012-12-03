@@ -95,7 +95,7 @@ class CouponsController < ApplicationController
 
   # GET /
   def top
-    @coupons = Coupon.order('created_at DESC').limit(20)
+    @coupons = Coupon.top
     
     respond_to do |format|
       format.html { render 'index' }
@@ -130,25 +130,27 @@ class CouponsController < ApplicationController
     end
   end
 
+  # POST /shops/1/coupons/1/get
   def get
     coupon = Coupon.find(params[:id])
     if not user.has?(coupon)
-      user.coupon_usages.build(coupon_id: coupon.id)
+      user.coupon_usages.create!(coupon_id: coupon.id)
     end
-    redirect_to [coupon.shop, coupon]
+    redirect_to shop_coupon_path(coupon.shop, coupon)
   end
+
 
   # POST /shops/1/coupons/1/use
   def use
     coupon = Coupon.find(params[:id])
     user = current_user
     if not user.has?(coupon)
-      user.coupon_usages.build(coupon_id: coupon.id)
+      user.coupon_usages.create!(coupon_id: coupon.id)
     end
-    if user.coupons.use(coupon)
+    if user.use!(coupon)
       redirect_to root_path # TODO redirect to page to show coupon
     else
-      redirect_to [coupon.shop, coupon], notice: 'You cannot use this coupon anymore.'
+      redirect_to shop_coupon_path(coupon.shop, coupon), notice: 'You cannot use this coupon anymore.'
     end
   end
 

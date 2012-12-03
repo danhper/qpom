@@ -15,6 +15,12 @@ class CouponUsage < ActiveRecord::Base
   belongs_to :coupon
   belongs_to :user
 
+  after_initialize :init
+
+  def init
+    self.times_used ||= 0
+  end
+
   validates :coupon_id, presence: true
   validates :user_id, presence: true
 end

@@ -58,7 +58,7 @@ gem 'rails-backbone'
 
 
 gem 'jquery-rails', '2.0.2'
-gem 'jquery_mobile_rails', '1.1.1'
+gem 'jquery_mobile-rails'
 gem 'js-routes'
 
 
