@@ -1,14 +1,14 @@
-<div data-role="footer" data-id="main_buttons" data-position="fixed" data-tap-toggle="false">
-    <div data-role="navbar">
+<div data-role="footer" data-id="main_buttons" data-position="fixed" data-tap-toggle="false" class="nav_gly">
+    <div data-role="navbar" class="nav_gly">
         <ul>
             <li>
-                <%= link_to t('coupon.my'), coupons_my_path, "data-icon" => "delete" %>
+			<%= link_to t('coupon.my'), coupons_my_path, "id" => "list_icon", "data-icon" => "custom" %>
             </li>
             <li>
-                <%= link_to t('shop.search'), search_shops_path, "data-icon" => "delete" %>
+                <%= link_to t('shop.search'), search_shops_path, "id" => "search_icon", "data-icon" => "custom" %>
             </li>
             <li>
-                <%= link_to t('coupon.ranking'), coupons_ranking_path, "data-icon" => "delete" %>
+			<%= link_to t('coupon.ranking'), coupons_ranking_path, "id" => "ranking_icon", "data-icon" => "custom" %>
             </li>
         </ul>
     </div>

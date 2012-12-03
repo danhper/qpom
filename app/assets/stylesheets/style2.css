@@ -28,6 +28,24 @@
 	top:1px;
 }
 
+.nav_gly .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+		.nav_gly .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: none !important; border-radius: none !important; }
+#list_icon .ui-icon {
+	background: url(/assets/list.png) 50% 50% no-repeat;
+background-size: 24px 22px;
+}
+
+#search_icon .ui-icon {
+	background: url(/assets/search.png) 50% 50% no-repeat;
+	background-size: 24px 22px;
+}
+
+#ranking_icon .ui-icon {
+	background: url(/assets/ranking.png) 50% 50% no-repeat;
+	background-size: 24px 22px;
+}
+
+
 
 #header_logo {
 	text-align:center;
