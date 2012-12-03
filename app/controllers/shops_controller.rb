@@ -89,7 +89,7 @@ class ShopsController < ApplicationController
   def my
     @shops = current_user.shops
     respond_to do |format|
-      format.html { render template: 'shops/my_shops'}
+      format.html { render template: 'shops/index'}
       format.json { render json: @shops }
     end
   end
@@ -105,8 +105,9 @@ class ShopsController < ApplicationController
 
   # GET /shops/find
   def find
+    @shops = Shop.search(params)
     respond_to do |format|
-      format.html
+      format.html { render template: 'shops/index' }
       format.json { head :no_content }
     end
   end

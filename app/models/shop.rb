@@ -82,4 +82,18 @@ class Shop < ActiveRecord::Base
   def sum_of_shared_coupons_number
     coupons.inject(0){|sum, i| sum + i.shared_coupon_number}
   end
+
+  def self.search(params)
+    shops = Shop.select('*')
+    unless params[:free_word].nil? or params[:free_word].empty?
+      q = "%#{params[:free_word]}%"
+      shops = shops.where("name like ? or dscription like ?", q, q)
+    end
+    [:area, :prefecture, :town].each do |location|
+      unless params[location].nil? or params[location].to_i == 0
+        shops = shops.where("#{location}_id = ?", params[location].to_i)
+      end
+    end
+    shops
+  end
 end

@@ -29,7 +29,6 @@ class Coupon < ActiveRecord::Base
 
   after_initialize :init
 
-
   belongs_to :shop
 
   has_many :coupon_usages, dependent: :destroy
