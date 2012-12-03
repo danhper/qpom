@@ -49,7 +49,7 @@ class Coupon < ActiveRecord::Base
   end
 
   def self.top(limit=20)
-    coupons = Coupon.where('validity_end_time >= ?', Time.now)
+    coupons = Coupon.where('validity_end_datetime >= ?', Time.now)
     coupons.order('created_at DESC').limit(limit)
   end
 
