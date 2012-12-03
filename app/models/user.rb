@@ -86,7 +86,7 @@ class User < ActiveRecord::Base
   end
 
   def shared_coupon_number
-    123
+    0
   end
 
   def registered_my_shop_number
@@ -94,11 +94,11 @@ class User < ActiveRecord::Base
   end
 
   def favorite_attribute
-    ['abc', 'qwe', 'zcx']
+    []
   end
 
   def user_attribute
-    ['abc', 'qwe', 'zcx']
+    []
   end
 
   def has?(coupon)

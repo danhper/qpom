@@ -66,6 +66,7 @@ ja:
     confirm_use: このクーポン使いますか？
     use_now: 今すぐ使う
     share: 共有する
+    register: 登録する
     users: 所有者一覧
     distributed_times: 発行回数
     shared_times: 共有回数

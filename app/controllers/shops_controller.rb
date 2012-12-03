@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
   before_filter :authenticate_user!, only: [:my, :add_to_my, :remove_from_my]
   before_filter :authenticate_shop!, only: [:edit, :update, :destroy]
+  before_filter(only: [:edit, :update, :destroy]) { |c| c.send(:is_current_shop!, params[:id]) }
   before_filter :signed_in!, only: [:show]
   # GET /shops
   # GET /shops.json

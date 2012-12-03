@@ -1,10 +1,9 @@
-<table width="80%" border="0">
-  <tr>
-    <td><img src="../image/sample_coupon.png"</td>
-    <td class="coupon_details"><%= t('coupon.name') + ':' + coupon.name %> <br />
+<tr>
+  <td><%= cl_image_tag coupon.image, width: 150, height: 150, crop: :scale %></td>
+  <td class="coupon_details"><%= t('coupon.name') + ':' + coupon.name %> <br />
     <%= t('coupon.description') + ':' + coupon.description %><br />
     <%= t('coupon.validity') + ':' + validity_time(coupon) %><br />
     <%= t('coupon.target') + ':' + coupon.target unless coupon.target.nil? %>
-    <span class="button big">配信停止</span></td>
-  </tr>
-</table>
+    <span class="button big"><%= t 'coupon.stop' %></span>
+  </td>
+</tr>

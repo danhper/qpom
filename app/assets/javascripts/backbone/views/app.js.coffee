@@ -1,8 +1,6 @@
 class Qpom.Views.AppView extends Backbone.View
   el: 'body'
 
-  events:
-    'click #menu-button': 'toggleMenu'
+  initialize: ->
+    @$el.on 'click', '#menu-button', => @$('#top-menu').toggle()
   
-  toggleMenu: (e) ->
-    $('#top-menu').toggle();
