@@ -87,7 +87,7 @@ class Shop < ActiveRecord::Base
     shops = Shop.select('*')
     unless params[:free_word].nil? or params[:free_word].empty?
       q = "%#{params[:free_word]}%"
-      shops = shops.where("name like ? or dscription like ?", q, q)
+      shops = shops.where("name like ? or description like ?", q, q)
     end
     [:area, :prefecture, :town].each do |location|
       unless params[location].nil? or params[location].to_i == 0
