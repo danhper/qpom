@@ -19,26 +19,13 @@
 <table class="userlist">
   <caption><%= t 'coupon.users' %></caption>
   <tr>
-    <th scope="col">&nbsp;</th>
-    <th scope="col">ID</th>
-    <th scope="col">利用</th>
-    <th scope="col">登録日</th>
-    <th scope="col">お気に入り</th>
-    <th scope="col">マイ店登録数</th>
-    <th scope="col">お気に入り件数</th>
-    <th scope="col">性別</th>
-    <th scope="col">入手方法</th>
+    <th scope="col"><%= t 'coupon.code' %></th>
+    <th scope="col"><%= t 'coupon.usage_number' %></th>
+    <th scope="col"><%= t 'user.registration_date' %></th>
+    <th scope="col"><%= t 'user.stared_shops_number' %></th>
   </tr>
-  <tr>
-    <td><div class="button">詳細</div></td>
-    <td>5624</td>
-    <td>○</td>
-    <td>2012/04/21</td>
-    <td>○</td>
-    <td>4</td>
-    <td>4</td>
-    <td>男</td>
-    <td>シェア</td>
-  </tr>
+  <% @coupon.users.each do |user| %>
+    <%= render partial: "users/user_details_small", locals: { coupon: @coupon, user: user } %>
+  <% end %>
 </table>
 </div>

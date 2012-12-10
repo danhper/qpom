@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128074427) do
+ActiveRecord::Schema.define(:version => 20121210023519) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20121128074427) do
     t.integer  "used_times"
     t.integer  "shared_times"
     t.integer  "distributed_times"
+    t.boolean  "is_active"
   end
 
   create_table "genres", :force => true do |t|

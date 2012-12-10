@@ -43,6 +43,7 @@ ja:
     shared_coupons_number: シェア回数
     stared_shops_number: マイ店登録数
     attributes: ユーザー属性
+    registration_date: 登録日
   coupon:
     code: コード
     name: クーポン名
@@ -73,6 +74,7 @@ ja:
     distributed_times: 発行回数
     shared_times: 共有回数
     my: マイクーポン一覧
+    usage_number: 利用回数
   buttons:
     search: 検索
     create: 作成

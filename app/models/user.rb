@@ -113,7 +113,7 @@ class User < ActiveRecord::Base
   end
 
   def times_used(coupon)
-    usage = coupon_usage.where("coupon_id = ?", coupon.id).first
+    usage = coupon_usages.where("coupon_id = ?", coupon.id).first
     usage.times_used
   end
 

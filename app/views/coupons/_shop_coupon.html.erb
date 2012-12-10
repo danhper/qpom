@@ -1,6 +1,7 @@
 <tr>
   <td><%= cl_image_tag coupon.image, width: 150, height: 150, crop: :scale %></td>
-  <td class="coupon_details"><%= t('coupon.name') + ':' + coupon.name %> <br />
+  <td class="coupon_details">
+    <%= "#{t('coupon.name')}: " %> <%=link_to coupon.name, [coupon.shop, coupon] %> <br />
     <%= t('coupon.description') + ':' + coupon.description %><br />
     <%= t('coupon.validity') + ':' + validity_time(coupon) %><br />
     <%= t('coupon.target') + ':' + coupon.target unless coupon.target.nil? %>
