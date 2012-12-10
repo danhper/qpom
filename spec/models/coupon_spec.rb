@@ -18,6 +18,7 @@
 #  used_times              :integer
 #  shared_times            :integer
 #  distributed_times       :integer
+#  is_active               :boolean
 #
 
 require 'spec_helper'

@@ -18,6 +18,7 @@
 #  used_times              :integer
 #  shared_times            :integer
 #  distributed_times       :integer
+#  is_active               :boolean
 #
 
 class Coupon < ActiveRecord::Base
@@ -48,7 +49,8 @@ class Coupon < ActiveRecord::Base
   end
 
   def self.top(limit=20)
-    coupons = Coupon.where('validity_end_datetime >= ?', Time.now)
+    coupons = Coupon.where('is_active = ? and validity_end_datetime >= ?', 
+      true, Time.now)
     coupons.order('created_at DESC').limit(limit)
   end
 
